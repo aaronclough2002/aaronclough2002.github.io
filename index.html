@@ -10,123 +10,137 @@
       box-sizing: border-box;
     }
 
+    :root {
+      --bg: linear-gradient(180deg, #eef5ef 0%, #e7f0e9 100%);
+      --panel: rgba(255, 255, 255, 0.92);
+      --hero: #dcebdd;
+      --text: #1d2f24;
+      --muted: #5e7164;
+      --accent: #4a765b;
+      --accent-dark: #335340;
+      --line: rgba(60, 90, 69, 0.12);
+      --shadow: 0 14px 34px rgba(0, 0, 0, 0.06);
+      --radius: 22px;
+    }
+
     body {
       margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      color: #1f2d23;
-      background: #edf4ee;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      color: var(--text);
+      background: var(--bg);
     }
 
     a {
       text-decoration: none;
+      color: inherit;
     }
 
     .page {
-      max-width: 1180px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 24px 20px 48px;
+      padding: 30px 20px 60px;
     }
 
     .top-nav {
       display: flex;
       justify-content: center;
       gap: 28px;
-      margin-bottom: 18px;
-      font-size: 16px;
+      margin-bottom: 20px;
       font-weight: 600;
+      flex-wrap: wrap;
     }
 
     .top-nav a {
-      color: #3f6f52;
+      color: var(--accent);
       transition: 0.2s ease;
     }
 
     .top-nav a:hover {
-      color: #2e523c;
-    }
-
-    .header {
-      text-align: center;
-      margin-bottom: 22px;
-    }
-
-    .header h1 {
-      margin: 0;
-      font-size: 44px;
-      color: #1f2d23;
-      letter-spacing: 0.2px;
-    }
-
-    .header p {
-      margin: 10px 0 0;
-      font-size: 18px;
-      color: #5f6f63;
+      color: var(--accent-dark);
     }
 
     .hero {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 40px;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 34px;
       align-items: center;
-      background: #f9fcf9;
-      padding: 42px;
-      border-radius: 22px;
-      box-shadow: 0 12px 32px rgba(31, 45, 35, 0.07);
+      background: var(--panel);
+      border-radius: var(--radius);
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-text h1 {
+      margin: 0 0 14px;
+      font-size: 46px;
+      letter-spacing: -0.8px;
     }
 
     .hero-text p {
-      font-size: 20px;
+      font-size: 19px;
       line-height: 1.85;
+      color: #24362b;
       margin-top: 0;
       margin-bottom: 18px;
-      color: #243127;
     }
 
     .hero-image img {
       width: 100%;
       max-width: 390px;
-      height: 460px;
+      height: 470px;
       object-fit: cover;
       display: block;
       margin-left: auto;
       border-radius: 20px;
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.10);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
     }
 
     .buttons {
-      margin-top: 28px;
+      margin-top: 24px;
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
     }
 
-    .buttons a {
+    .button {
       display: inline-block;
       padding: 13px 20px;
-      background: #4b7a5d;
-      color: #ffffff;
       border-radius: 10px;
       font-weight: 700;
-      font-size: 16px;
       transition: 0.2s ease;
     }
 
-    .buttons a:hover {
-      background: #355a43;
+    .button.primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .button.primary:hover {
+      background: var(--accent-dark);
       transform: translateY(-1px);
     }
 
-    .footer {
+    .button.secondary {
+      background: white;
+      color: var(--accent-dark);
+      border: 1px solid var(--line);
+    }
+
+    .button.secondary:hover {
+      background: #f8fbf8;
+      transform: translateY(-1px);
+    }
+
+    footer {
       text-align: center;
       font-size: 14px;
-      color: #5f6f63;
-      margin-top: 28px;
+      color: var(--muted);
+      margin-top: 26px;
     }
 
     @media (max-width: 900px) {
       .hero {
         grid-template-columns: 1fr;
-        padding: 28px;
       }
 
       .hero-image img {
@@ -135,8 +149,8 @@
         height: auto;
       }
 
-      .header h1 {
-        font-size: 36px;
+      .hero-text h1 {
+        font-size: 38px;
       }
 
       .hero-text p {
@@ -146,34 +160,22 @@
 
     @media (max-width: 600px) {
       .page {
-        padding: 18px 14px 34px;
-      }
-
-      .top-nav {
-        gap: 16px;
-        font-size: 15px;
-        flex-wrap: wrap;
-      }
-
-      .header h1 {
-        font-size: 31px;
-      }
-
-      .header p {
-        font-size: 16px;
+        padding: 20px 14px 40px;
       }
 
       .hero {
-        padding: 22px;
-        gap: 24px;
+        padding: 24px;
+      }
+
+      .hero-text h1 {
+        font-size: 32px;
       }
 
       .hero-text p {
         font-size: 17px;
-        line-height: 1.75;
       }
 
-      .buttons a {
+      .buttons .button {
         width: 100%;
         text-align: center;
       }
@@ -183,19 +185,16 @@
 <body>
   <div class="page">
 
-    <nav class="top-nav">
+    <div class="top-nav">
       <a href="index.html">Home</a>
-      <a href="work.html">Work</a>
+      <a href="career.html">Career</a>
       <a href="about.html">About Me</a>
-    </nav>
+    </div>
 
-    <header class="header">
-      <h1>Aaron Clough</h1>
-      <p>Project manager, tennis player, husband, and lifelong Texan</p>
-    </header>
-
-    <section class="hero">
+    <div class="hero">
       <div class="hero-text">
+        <h1>Aaron Clough</h1>
+
         <p>
           Thanks for stopping by. I built this site as a place to share a little about who I am, both personally and professionally.
         </p>
@@ -209,23 +208,24 @@
         </p>
 
         <p>
-          Feel free to take a look around to learn more about my work, my interests, and the people and pets that make life fun.
+          Feel free to take a look around to learn more about my career, my interests, and the people and pets that make life fun.
         </p>
 
         <div class="buttons">
-          <a href="work.html">Explore My Work</a>
-          <a href="about.html">Visit About Me</a>
+          <a class="button primary" href="career.html">Explore My Career</a>
+          <a class="button secondary" href="about.html">Visit About Me</a>
         </div>
       </div>
 
       <div class="hero-image">
         <img src="assets/images/me.png" alt="Aaron Clough" />
       </div>
-    </section>
-
-    <div class="footer">
-      © 2026 Aaron Clough
     </div>
+
+    <footer>
+      © 2026 Aaron Clough
+    </footer>
+
   </div>
 </body>
 </html>

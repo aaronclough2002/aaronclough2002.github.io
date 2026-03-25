@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Career | Aaron Clough</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: linear-gradient(180deg, #eef5ef 0%, #e7f0e9 100%);
+      --panel: rgba(255, 255, 255, 0.92);
+      --panel-soft: #f5faf6;
+      --hero: #dcebdd;
+      --text: #1c2f25;
+      --muted: #5f7165;
+      --accent: #4a765b;
+      --accent-dark: #335340;
+      --line: rgba(60, 90, 69, 0.12);
+      --shadow: 0 14px 34px rgba(0, 0, 0, 0.06);
+      --radius: 22px;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .page {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 30px 20px 60px;
+    }
+
+    .top-nav {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-bottom: 20px;
+      font-weight: 600;
+      flex-wrap: wrap;
+    }
+
+    .top-nav a {
+      color: var(--accent);
+      transition: 0.2s ease;
+    }
+
+    .top-nav a:hover {
+      color: var(--accent-dark);
+    }
+
+    .hero {
+      background: var(--hero);
+      border-radius: var(--radius);
+      padding: 34px;
+      margin-bottom: 26px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 42px;
+    }
+
+    .hero p {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 19px;
+      line-height: 1.8;
+      color: #294032;
+    }
+
+    .hero-actions {
+      margin-top: 22px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .button.primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+
+    .button.secondary {
+      background: white;
+      color: var(--accent-dark);
+      border: 1px solid var(--line);
+    }
+
+    .button.secondary:hover {
+      background: #f8fbf8;
+      transform: translateY(-1px);
+    }
+
+    .section {
+      background: var(--panel);
+      border-radius: var(--radius);
+      padding: 30px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .section h2 {
+      margin: 0 0 16px;
+      font-size: 30px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 26px;
+      align-items: start;
+    }
+
+    .story p,
+    .card p {
+      font-size: 18px;
+      line-height: 1.8;
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
+
+    .card-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .card,
+    .project-card,
+    .focus-card,
+    .highlight,
+    .resume-box {
+      background: var(--panel-soft);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .card h3,
+    .focus-card h3,
+    .project-card h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .highlight {
+      text-align: center;
+    }
+
+    .highlight-number {
+      display: block;
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: var(--accent-dark);
+    }
+
+    .highlight-label {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .pill {
+      background: #e7f1e8;
+      color: #294032;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      border: 1px solid rgba(60, 90, 69, 0.1);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .resume-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      background: linear-gradient(135deg, #edf6ee, #f9fcf9);
+    }
+
+    .resume-box p {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.8;
+      color: #294032;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    @media (max-width: 980px) {
+      .two-col,
+      .focus-grid,
+      .projects-grid,
+      .highlight-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .page {
+        padding: 20px 14px 40px;
+      }
+
+      .hero,
+      .section {
+        padding: 22px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p,
+      .story p,
+      .card p {
+        font-size: 17px;
+      }
+
+      .resume-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <div class="top-nav">
+      <a href="index.html">Home</a>
+      <a href="career.html">Career</a>
+      <a href="about.html">About Me</a>
+    </div>
+
+    <div class="hero">
+      <h1>Career</h1>
+      <p>
+        I’ve built my career around helping teams bring structure, momentum, and clarity to complex work. My background spans enterprise environments, startups, product teams, software delivery, and technical business analysis, which has made me a strong utility player across a wide range of roles.
+      </p>
+
+      <div class="hero-actions">
+        <a class="button primary" href="#projects">View AI Projects</a>
+        <a class="button secondary" href="assets/docs/resume.pdf" target="_blank">View Resume</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>How I Got Here</h2>
+
+      <div class="two-col">
+        <div class="story">
+          <p>
+            Earlier in my career, I worked as a high school technology teacher and coach. I taught courses such as Business Information Systems, Web Design, Video Production, and Digital and Interactive Media, while also coaching football and soccer.
+          </p>
+
+          <p>
+            I also served as the academic sponsor for the accounting team and computer applications team, and led a student crew that ran the cameras and jumbotron during high school football games. Looking back, that experience sharpened a lot of the same skills I still use today: communication, leadership, organization, and helping people work well together.
+          </p>
+
+          <p>
+            From there, I was accepted into a software developer training program at the University of Texas. After completing the program, I was placed on the payroll team and got the opportunity to work on the 15th floor of the UT Tower, which was a pretty memorable way to begin building experience in software and enterprise systems.
+          </p>
+
+          <p>
+            Since then, my path has included both large corporate organizations and startup environments. Along the way, I’ve worked across project management, product ownership, technical business analysis, and delivery leadership, which is why I tend to be most effective in roles where I can bridge business and technical teams.
+          </p>
+        </div>
+
+        <div class="card-list">
+          <div class="card">
+            <h3>What I Bring</h3>
+            <p>
+              I’m strongest in roles that need someone who can organize moving parts, ask good questions, understand systems quickly, and help people move from ambiguity to execution.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Where I’ve Worked</h3>
+            <p>
+              My experience includes enterprise HR and payroll platforms, scientific research systems, healthcare portals, insurance technology, ecommerce search, and startup product operations.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>How I’m Wired</h3>
+            <p>
+              I like being the person who can connect stakeholders, clarify requirements, identify risks, and keep delivery moving without losing sight of the big picture.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Career Highlights</h2>
+      <div class="section-intro">
+        A few numbers and themes that reflect the scale and variety of work I’ve been trusted to lead and support.
+      </div>
+
+      <div class="highlight-grid">
+        <div class="highlight">
+          <span class="highlight-number">25,000</span>
+          <span class="highlight-label">Employees supported in enterprise Workday HR/Payroll hypercare</span>
+        </div>
+        <div class="highlight">
+          <span class="highlight-number">85</span>
+          <span class="highlight-label">Integrations tied to a major enterprise platform</span>
+        </div>
+        <div class="highlight">
+          <span class="highlight-number">4,000</span>
+          <span class="highlight-label">Hypercare tickets managed in the first two months post-go-live</span>
+        </div>
+        <div class="highlight">
+          <span class="highlight-number">8</span>
+          <span class="highlight-label">European sites supported in an international scientific platform rollout</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Areas of Focus</h2>
+
+      <div class="focus-grid">
+        <div class="focus-card">
+          <h3>Enterprise Delivery</h3>
+          <p>
+            Workday programs, post-go-live hypercare, large stakeholder groups, operational triage, executive reporting, and cross-functional coordination across HR, payroll, security, reporting, and integrations.
+          </p>
+        </div>
+
+        <div class="focus-card">
+          <h3>Technical & Platform Work</h3>
+          <p>
+            SaaS implementations, scientific platforms, vendor coordination, architecture collaboration, requirements definition, testing strategy, cloud-related work, and modernization initiatives.
+          </p>
+        </div>
+
+        <div class="focus-card">
+          <h3>Product & Analysis</h3>
+          <p>
+            Backlog prioritization, acceptance criteria, process flows, UAT, search optimization, workflow design, analytics, and translating business needs into delivery-ready work.
+          </p>
+        </div>
+      </div>
+
+      <div class="pill-row">
+        <span class="pill">Workday</span>
+        <span class="pill">AWS</span>
+        <span class="pill">Salesforce</span>
+        <span class="pill">Jira</span>
+        <span class="pill">Confluence</span>
+        <span class="pill">Azure DevOps</span>
+        <span class="pill">Tableau</span>
+        <span class="pill">Excel</span>
+        <span class="pill">SharePoint</span>
+        <span class="pill">Miro</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Selected Impact</h2>
+
+      <div class="card-list">
+        <div class="card">
+          <h3>Enterprise Workday Hypercare</h3>
+          <p>
+            Led hypercare execution for an enterprise Workday HR/Payroll platform serving roughly 25,000 employees with about 85 integrations, while coordinating issue triage, reporting, and stakeholder communication across a large cross-functional organization.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Scientific & Platform Delivery</h3>
+          <p>
+            Managed international scientific platform and cloud-related work, including support for an AWS-backed imaging environment across 8 European sites and platform improvements tied to meaningful research and revenue impact.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Product, Search, and Delivery Operations</h3>
+          <p>
+            Worked across search relevance, product prioritization, backlog management, funnel analysis, and delivery coordination, helping teams make better decisions using customer behavior, business needs, and practical execution tradeoffs.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="projects">
+      <h2>AI Projects</h2>
+      <div class="section-intro">
+        In addition to my professional background, I’ve been building AI side projects to strengthen my hands-on skills and show practical application, not just theory.
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>AI Meeting Summary Tool</h3>
+          <p>
+            A tool that turns meeting transcripts into clear summaries and action items. This project reflects my interest in practical AI use cases that improve communication and save time.
+          </p>
+          <div class="project-links">
+            <a class="button primary" href="https://ai-meeting-summary-tool.streamlit.app/" target="_blank">Open Project</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>AI Project Status Generator</h3>
+          <p>
+            A project-focused tool designed to help generate polished status updates more efficiently. It combines my PM background with my interest in AI-enabled workflow improvement.
+          </p>
+          <div class="project-links">
+            <a class="button primary" href="https://ai-project-status-generator.streamlit.app/" target="_blank">Open Project</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>RAG Knowledge Base Search</h3>
+          <p>
+            A retrieval-based document search app that lets users ask questions across uploaded files and get grounded answers back. It’s one of the best examples of my effort to move from managing technology to also building with it.
+          </p>
+          <div class="project-links">
+            <a class="button primary" href="https://cet-knowledge-base-c5cbdhyynbyggssdnbgywh.streamlit.app/" target="_blank">Open Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="resume">
+      <h2>Resume & Certifications</h2>
+
+      <div class="resume-box">
+        <p>
+          For a more detailed look at my background, experience, and recent roles, you can view my resume below. I’ve also included my certifications in both acronym and full-name form for readability.
+        </p>
+
+        <a class="button secondary" href="assets/docs/resume.pdf" target="_blank">View Resume</a>
+      </div>
+
+      <div class="pill-row">
+        <span class="pill">PMP (Project Management Professional)</span>
+        <span class="pill">CSM (Certified ScrumMaster)</span>
+        <span class="pill">CBAP (Certified Business Analysis Professional)</span>
+        <span class="pill">AWS CCP (AWS Certified Cloud Practitioner)</span>
+        <span class="pill">Salesforce Associate</span>
+        <span class="pill">Certified Prompt Engineer</span>
+      </div>
+    </div>
+
+    <footer>
+      © 2026 Aaron Clough
+    </footer>
+
+  </div>
+</body>
+</html>
