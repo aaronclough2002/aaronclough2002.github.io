@@ -1,118 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Aaron Clough</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Aaron Clough</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    color: #222;
+    background: #f9f9f9;
+}
 
-        header {
-            text-align: center;
-            padding: 60px 20px;
-            background: #f5f5f5;
-        }
+/* HEADER */
+header {
+    text-align: center;
+    padding: 40px 20px 20px;
+    background: white;
+    border-bottom: 1px solid #eee;
+}
 
-        header img {
-            width: 140px;
-            height: 140px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin-bottom: 20px;
-        }
+header img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
 
-        h1 {
-            margin: 0;
-            font-size: 34px;
-        }
+h1 {
+    margin: 10px 0 0;
+    font-size: 30px;
+}
 
-        section {
-            padding: 50px 20px;
-            max-width: 900px;
-            margin: auto;
-        }
+/* MAIN CONTENT */
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
 
-        h2 {
-            margin-bottom: 20px;
-            font-size: 26px;
-        }
+/* INTRO */
+.intro {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
 
-        p {
-            font-size: 18px;
-        }
+/* SECTIONS */
+section {
+    margin-bottom: 40px;
+}
 
-        .projects {
-            display: grid;
-            gap: 20px;
-        }
+h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
 
-        .card {
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 10px;
-        }
+/* PROJECT CARDS */
+.projects {
+    display: grid;
+    gap: 15px;
+}
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: #f5f5f5;
-            margin-top: 40px;
-        }
-    </style>
+.card {
+    background: white;
+    padding: 18px;
+    border-radius: 8px;
+    border: 1px solid #e5e5e5;
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 25px;
+    font-size: 14px;
+    color: #777;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <!-- 🔧 Replace with your actual image file -->
-    <img src="assets/images/houston.png" alt="Profile">
-
+    <img src="assets/images/profile.jpg" alt="Profile">
     <h1>Aaron Clough</h1>
 </header>
 
-<section>
-    <p>
-        Welcome to my page, thanks for stopping by. I would love to share a little about me both personally and professionally.
-    </p>
-</section>
+<div class="container">
 
-<section>
-    <h2>Projects</h2>
+    <div class="intro">
+        <p>
+            Welcome to my page, thanks for stopping by. I would love to share a little about me both personally and professionally.
+        </p>
 
-    <div class="projects">
+        <p>
+            I’m a Project Manager with experience leading enterprise software initiatives, cloud implementations, and cross-functional teams. Over the course of my career, I’ve had the opportunity to work across a variety of industries and environments, often stepping into complex situations and helping bring clarity, structure, and momentum to the work.
+        </p>
 
-        <div class="card">
-            <h3>AI Meeting Summary Tool</h3>
-            <p>
-                A tool that takes meeting transcripts and generates concise summaries and action items using AI.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>AI Knowledge Base (RAG App)</h3>
-            <p>
-                A document search system that allows users to upload files and ask questions, returning answers grounded in the data.
-            </p>
-        </div>
-
+        <p>
+            I tend to enjoy roles where I can be a bit of a “utility player” — bridging the gap between business and technical teams, solving problems, and helping drive projects forward in a practical, results-focused way. More recently, I’ve also been building hands-on experience with AI tools and applications, exploring how they can be used to create real-world value.
+        </p>
     </div>
-</section>
 
-<section>
-    <h2>About Me</h2>
-    <p>
-        I am a Project Manager with experience leading enterprise software initiatives, cloud implementations, and cross-functional teams. I enjoy solving complex problems, building efficient systems, and leveraging emerging technologies like AI to create meaningful impact.
-    </p>
-</section>
+    <section>
+        <h2>Projects</h2>
+
+        <div class="projects">
+
+            <div class="card">
+                <h3>AI Meeting Summary Tool</h3>
+                <p>
+                    A tool that converts meeting transcripts into clear summaries and action items using AI.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>AI Knowledge Base (RAG App)</h3>
+                <p>
+                    A document search system that allows users to upload files and ask questions, returning answers grounded in the data.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+</div>
 
 <footer>
-    <p>© 2026 Aaron Clough</p>
+    © 2026 Aaron Clough
 </footer>
 
 </body>
