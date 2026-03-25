@@ -6,396 +6,273 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    :root {
-      --bg: #edf5ef;
-      --panel: rgba(255, 255, 255, 0.72);
-      --panel-solid: #f8fbf8;
-      --text: #183126;
-      --muted: #5d7165;
-      --accent: #4f7b61;
-      --accent-dark: #345541;
-      --line: rgba(57, 88, 67, 0.10);
-      --shadow: 0 18px 50px rgba(25, 44, 34, 0.08);
-      --radius: 24px;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(124, 168, 135, 0.12), transparent 28%),
-        radial-gradient(circle at top right, rgba(124, 168, 135, 0.10), transparent 24%),
-        linear-gradient(180deg, #eef5ef 0%, #e9f1eb 100%);
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: linear-gradient(180deg, #eef5ef, #e8f1ea);
+      color: #1e2f25;
     }
 
     .page {
-      max-width: 1220px;
-      margin: 0 auto;
-      padding: 28px 20px 56px;
+      max-width: 1200px;
+      margin: auto;
+      padding: 30px 20px 60px;
     }
 
+    /* NAV */
     .top-nav {
       display: flex;
       justify-content: center;
-      gap: 30px;
-      margin-bottom: 24px;
-      font-size: 15px;
-      font-weight: 700;
-      letter-spacing: 0.2px;
+      gap: 28px;
+      margin-bottom: 20px;
+      font-weight: 600;
     }
 
     .top-nav a {
-      color: var(--accent-dark);
-      opacity: 0.88;
-      transition: 0.2s ease;
+      color: #3f6f52;
+      text-decoration: none;
     }
 
-    .top-nav a:hover {
-      opacity: 1;
-      transform: translateY(-1px);
-    }
-
+    /* HERO */
     .hero {
-      background: linear-gradient(135deg, rgba(232, 243, 233, 0.92), rgba(248, 252, 248, 0.90));
-      border: 1px solid rgba(255,255,255,0.65);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-radius: 30px;
-      box-shadow: var(--shadow);
-      padding: 42px 42px 34px;
-      margin-bottom: 26px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      right: -40px;
-      top: -40px;
-      width: 180px;
-      height: 180px;
-      background: radial-gradient(circle, rgba(99, 145, 111, 0.18), transparent 68%);
-      pointer-events: none;
+      text-align: center;
+      background: #dcebdd;
+      padding: 30px;
+      border-radius: 20px;
+      margin-bottom: 30px;
     }
 
     .hero h1 {
       margin: 0;
-      text-align: center;
-      font-size: 50px;
-      letter-spacing: -1px;
+      font-size: 40px;
     }
 
-    .hero-sub {
-      margin: 10px auto 0;
-      text-align: center;
-      font-size: 18px;
-      color: var(--muted);
-      max-width: 720px;
-      line-height: 1.7;
-    }
-
+    /* SECTIONS */
     .section {
-      background: var(--panel);
-      border: 1px solid rgba(255,255,255,0.7);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 34px;
-      margin-bottom: 24px;
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 25px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
     }
 
-    .section h2 {
-      margin: 0 0 20px;
-      font-size: 34px;
-      letter-spacing: -0.6px;
+    h2 {
+      margin-top: 0;
+      font-size: 28px;
     }
 
-    .relationship-grid,
-    .tennis-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 32px;
-      align-items: start;
-    }
-
-    .relationship-text p,
-    .tennis-text p,
-    .dog-card p {
+    p {
       font-size: 18px;
-      line-height: 1.85;
-      color: #22362b;
-      margin: 0 0 18px;
+      line-height: 1.8;
     }
 
-    .gallery-wrap {
-      background: rgba(236, 244, 237, 0.72);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 16px;
+    /* TERA SECTION */
+    .relationship {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
     }
 
     .gallery {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
+      gap: 12px;
     }
 
     .gallery-main img {
       width: 100%;
-      height: 360px;
+      height: 300px;
       object-fit: cover;
-      border-radius: 18px;
-      display: block;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+      border-radius: 15px;
     }
 
-    .gallery-strip {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-
-    .gallery-strip img {
-      width: 100%;
-      height: 175px;
-      object-fit: cover;
-      border-radius: 16px;
-      display: block;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.06);
-    }
-
-    .dogs-grid {
+    .gallery-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 22px;
+      gap: 12px;
+    }
+
+    .gallery-row img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    /* DOGS */
+    .dogs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
     }
 
     .dog-card {
-      background: rgba(240, 247, 241, 0.86);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 20px;
+      background: #f2f7f3;
+      padding: 18px;
+      border-radius: 15px;
     }
 
-    .dog-photo {
-      background: #e2ece3;
-      border-radius: 18px;
-      padding: 16px;
-      margin-bottom: 16px;
+    .dog-img {
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 360px;
+      background: #dde8de;
+      border-radius: 12px;
+      padding: 10px;
+      height: 320px;
     }
 
-    .dog-photo img {
+    .dog-img img {
+      max-height: 100%;
       max-width: 100%;
-      max-height: 320px;
-      width: auto;
-      height: auto;
-      display: block;
-      border-radius: 14px;
       object-fit: contain;
     }
 
-    .dog-card h3 {
-      margin: 0 0 10px;
-      font-size: 28px;
-      letter-spacing: -0.3px;
+    /* TENNIS */
+    .tennis {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
     }
 
-    .tennis-photo {
-      background: rgba(236, 244, 237, 0.72);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 16px;
-    }
-
-    .tennis-photo img {
+    .tennis img {
       width: 100%;
       height: auto;
-      display: block;
-      border-radius: 18px;
-      box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+      border-radius: 15px;
     }
 
-    .footer {
+    /* FOOTER */
+    footer {
       text-align: center;
-      color: var(--muted);
       font-size: 14px;
+      color: #5f6f63;
       margin-top: 10px;
     }
 
-    @media (max-width: 980px) {
-      .relationship-grid,
-      .tennis-grid,
-      .dogs-grid {
+    /* MOBILE */
+    @media (max-width: 900px) {
+      .relationship,
+      .dogs,
+      .tennis {
         grid-template-columns: 1fr;
-      }
-
-      .gallery-main img {
-        height: 300px;
-      }
-
-      .hero h1 {
-        font-size: 40px;
       }
     }
 
-    @media (max-width: 640px) {
-      .page {
-        padding: 18px 14px 36px;
-      }
-
-      .top-nav {
-        gap: 16px;
-        flex-wrap: wrap;
-      }
-
-      .hero,
-      .section {
-        padding: 22px;
-      }
-
-      .hero h1 {
-        font-size: 33px;
-      }
-
-      .hero-sub,
-      .relationship-text p,
-      .tennis-text p,
-      .dog-card p {
-        font-size: 17px;
-      }
-
-      .gallery-strip {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery-main img,
-      .gallery-strip img {
-        height: auto;
-      }
-
-      .dog-photo {
-        min-height: 280px;
-      }
-    }
   </style>
 </head>
+
 <body>
-  <div class="page">
 
-    <nav class="top-nav">
-      <a href="index.html">Home</a>
-      <a href="work.html">Work</a>
-      <a href="about.html">About Me</a>
-    </nav>
+<div class="page">
 
-    <section class="hero">
-      <h1>About Me</h1>
-      <p class="hero-sub">
-        A little more about the people, hobbies, and everyday life that matter most to me outside of work.
-      </p>
-    </section>
+  <div class="top-nav">
+    <a href="index.html">Home</a>
+    <a href="work.html">Work</a>
+    <a href="about.html">About Me</a>
+  </div>
 
-    <section class="section">
-      <h2>Tera and Me</h2>
+  <div class="hero">
+    <h1>About Me</h1>
+  </div>
 
-      <div class="relationship-grid">
-        <div class="relationship-text">
-          <p>
-            Tera and I met in 2020 and got married in 2022. She has been one of the biggest blessings in my life, and I’m genuinely grateful for the life we’ve built together.
-          </p>
+  <!-- TERA -->
+  <div class="section">
+    <h2>Tera and Me</h2>
 
-          <p>
-            Since we both work from home, we get to share a lot of the ordinary parts of life together too, usually with Raider and Keo nearby acting like honorary office assistants.
-          </p>
+    <div class="relationship">
 
-          <p>
-            Outside of work, we enjoy getting out and making memories together. Over the past five years, we’ve probably been to more than fifty concerts, and we also love country dancing at local dancehalls.
-          </p>
+      <div>
+        <p>
+          Tera and I met in 2020 and got married in 2022. She has been one of the biggest blessings in my life, and I’m genuinely grateful for the life we’ve built together.
+        </p>
+
+        <p>
+          Since we both work from home, we get to share a lot of the day-to-day parts of life, not just the big moments. Most days, that means working side by side, usually with Raider and Keo nearby doing their best to stay involved in everything.
+        </p>
+
+        <p>
+          One thing we really enjoy is getting out and experiencing life together. Over the past five years, we’ve been to more than fifty concerts, which has turned into one of our favorite things to do.
+        </p>
+
+        <p>
+          We also spend a lot of time at local dancehalls, country dancing and just enjoying the atmosphere. Whether we’re out doing something fun or just relaxing at home, we try to make the most of our time together.
+        </p>
+      </div>
+
+      <div class="gallery">
+        <div class="gallery-main">
+          <img src="assets/images/Wicked.jpg">
         </div>
-
-        <div class="gallery-wrap">
-          <div class="gallery">
-            <div class="gallery-main">
-              <img src="assets/images/Wicked.jpg" alt="Aaron and Tera at Wicked">
-            </div>
-            <div class="gallery-strip">
-              <img src="assets/images/brokenspoke.jpeg" alt="Aaron and Tera at Broken Spoke">
-              <img src="assets/images/houston.png" alt="Aaron and Tera in Houston">
-            </div>
-          </div>
+        <div class="gallery-row">
+          <img src="assets/images/brokenspoke.jpeg">
+          <img src="assets/images/houston.png">
         </div>
       </div>
-    </section>
 
-    <section class="section">
-      <h2>Our Dogs</h2>
-
-      <div class="dogs-grid">
-        <div class="dog-card">
-          <div class="dog-photo">
-            <img src="assets/images/keo.png" alt="Keo">
-          </div>
-          <h3>Keo</h3>
-          <p>
-            Keo is a Chaweeny and one of our full-time office mates. He’s about seven years old and definitely does his part to keep the house interesting during the workday.
-          </p>
-        </div>
-
-        <div class="dog-card">
-          <div class="dog-photo">
-            <img src="assets/images/raider.png" alt="Raider">
-          </div>
-          <h3>Raider</h3>
-          <p>
-            Raider is a Chihuahua and the other member of the home office team. He’s about nine years old and, like Keo, takes his role as office companion very seriously.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Tennis</h2>
-
-      <div class="tennis-grid">
-        <div class="tennis-photo">
-          <img src="assets/images/tennis.jpeg" alt="Aaron playing tennis">
-        </div>
-
-        <div class="tennis-text">
-          <p>
-            I’ve been playing tennis for about the past ten years and have traveled all over Texas to play in tournaments. I’m not going to pretend I’m some elite player, but I’m very thankful the sport has levels for people like me.
-          </p>
-
-          <p>
-            Tennis has given me a lot of great experiences over the years. Two of the coolest were getting to meet John Newcombe at his tennis ranch and getting to see Venus Williams play in person.
-          </p>
-
-          <p>
-            More than anything, it has been a fun challenge, a great outlet, and a hobby that has brought a lot of good memories.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <div class="footer">
-      © 2026 Aaron Clough
     </div>
   </div>
+
+  <!-- DOGS -->
+  <div class="section">
+    <h2>Our Dogs</h2>
+
+    <div class="dogs">
+
+      <div class="dog-card">
+        <div class="dog-img">
+          <img src="assets/images/keo.png">
+        </div>
+        <h3>Keo</h3>
+        <p>
+          Keo is a Chaweeny and one of our full-time office mates. He’s about seven years old and definitely does his part to keep the house interesting during the workday.
+        </p>
+      </div>
+
+      <div class="dog-card">
+        <div class="dog-img">
+          <img src="assets/images/raider.png">
+        </div>
+        <h3>Raider</h3>
+        <p>
+          Raider is a Chihuahua and the other member of the home office team. He’s about nine years old and, like Keo, takes his role as office companion very seriously.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TENNIS -->
+  <div class="section">
+    <h2>Tennis</h2>
+
+    <div class="tennis">
+
+      <img src="assets/images/tennis.jpeg">
+
+      <div>
+        <p>
+          I’ve been playing tennis for about the past ten years and have traveled all over Texas to play in tournaments. I’m not going to pretend I’m some elite player, but I’m very thankful the sport has levels for people like me.
+        </p>
+
+        <p>
+          Tennis has given me a lot of great experiences over the years. Two of the coolest were getting to meet John Newcombe at his tennis ranch and getting to see Venus Williams play in person.
+        </p>
+
+        <p>
+          More than anything, it has been a fun challenge, a great outlet, and a hobby that has brought a lot of good memories.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    © 2026 Aaron Clough
+  </footer>
+
+</div>
+
 </body>
 </html>
