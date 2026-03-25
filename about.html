@@ -12,7 +12,7 @@
 
     :root {
       --bg: linear-gradient(180deg, #eef5ef 0%, #e8f1ea 100%);
-      --panel: rgba(255, 255, 255, 0.92);
+      --panel: rgba(255, 255, 255, 0.94);
       --panel-soft: #f2f7f3;
       --hero: #dcebdd;
       --text: #1e2f25;
@@ -53,6 +53,7 @@
 
     .top-nav a {
       color: var(--accent);
+      transition: 0.2s ease;
     }
 
     .top-nav a:hover {
@@ -171,34 +172,37 @@
       display: block;
     }
 
-    .tennis {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      align-items: start;
+    .tennis-text {
+      margin-bottom: 22px;
     }
 
     .tennis-gallery {
       display: grid;
-      gap: 12px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      align-items: stretch;
     }
 
-    .tennis-main img {
+    .tennis-gallery img {
       width: 100%;
-      border-radius: 15px;
+      height: 360px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 16px;
       display: block;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
     }
 
-    .tennis-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
+    .tennis-main-photo {
+      object-position: top center;
     }
 
-    .tennis-row img {
-      width: 100%;
-      border-radius: 12px;
-      display: block;
+    .serve-photo {
+      object-position: center;
+    }
+
+    .newks-photo {
+      object-position: center top;
     }
 
     footer {
@@ -211,8 +215,13 @@
     @media (max-width: 900px) {
       .relationship,
       .dogs,
-      .tennis {
+      .tennis-gallery {
         grid-template-columns: 1fr;
+      }
+
+      .tennis-gallery img {
+        height: auto;
+        max-height: none;
       }
     }
 
@@ -237,8 +246,7 @@
         font-size: 17px;
       }
 
-      .gallery-row,
-      .tennis-row {
+      .gallery-row {
         grid-template-columns: 1fr;
       }
 
@@ -330,34 +338,28 @@
   <div class="section">
     <h2>Tennis</h2>
 
-    <div class="tennis">
-      <div class="tennis-gallery">
-        <div class="tennis-main">
-          <img src="assets/images/tennis.jpeg" alt="Aaron playing tennis">
-        </div>
-        <div class="tennis-row">
-          <img src="assets/images/serve.jpeg" alt="Aaron serving in tennis">
-          <img src="assets/images/newks.jpeg" alt="Aaron at John Newcombe tennis ranch">
-        </div>
-      </div>
+    <div class="tennis-text">
+      <p>
+        I’ve been playing tennis for about the past ten years and have traveled all over Texas competing in tournaments. While I wouldn’t describe myself as an elite player, I’ve been fortunate to qualify for and compete in the national doubles tournament four different times, which has been a really cool experience.
+      </p>
 
-      <div>
-        <p>
-          I’ve been playing tennis for about the past ten years and have traveled all over Texas competing in tournaments. While I wouldn’t describe myself as an elite player, I’ve been fortunate to qualify for and compete in the national doubles tournament four different times, which has been a really cool experience.
-        </p>
+      <p>
+        One of the things I appreciate most about tennis is that it’s truly a lifelong sport. It keeps me active, helps me stay in shape, and has given me the chance to meet a lot of great people along the way.
+      </p>
 
-        <p>
-          One of the things I appreciate most about tennis is that it’s truly a lifelong sport. It keeps me active, helps me stay in shape, and has given me the chance to meet a lot of great people along the way.
-        </p>
+      <p>
+        A couple of my favorite tennis memories include getting to meet John Newcombe at his ranch and seeing Venus Williams play in person. Both were reminders of how much history, fun, and community the sport can bring.
+      </p>
 
-        <p>
-          A couple of my favorite tennis memories include getting to meet John Newcombe at his ranch and seeing Venus Williams play in person. Both were reminders of how much history, fun, and community the sport can bring.
-        </p>
+      <p>
+        Tera also played back in high school, and I’ve managed to bring her out of retirement a few times to get out on the court with me, which always makes it even more fun.
+      </p>
+    </div>
 
-        <p>
-          Tera also played back in high school, and I’ve managed to bring her out of retirement a few times to get out on the court with me, which always makes it even more fun.
-        </p>
-      </div>
+    <div class="tennis-gallery">
+      <img class="tennis-main-photo" src="assets/images/tennis.jpeg" alt="Aaron playing tennis">
+      <img class="serve-photo" src="assets/images/serve.jpeg" alt="Aaron serving in tennis">
+      <img class="newks-photo" src="assets/images/newks.jpeg" alt="Aaron at John Newcombe tennis ranch">
     </div>
   </div>
 
