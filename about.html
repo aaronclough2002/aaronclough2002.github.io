@@ -10,75 +10,123 @@
       box-sizing: border-box;
     }
 
+    :root {
+      --bg: #edf5ef;
+      --panel: rgba(255, 255, 255, 0.72);
+      --panel-solid: #f8fbf8;
+      --text: #183126;
+      --muted: #5d7165;
+      --accent: #4f7b61;
+      --accent-dark: #345541;
+      --line: rgba(57, 88, 67, 0.10);
+      --shadow: 0 18px 50px rgba(25, 44, 34, 0.08);
+      --radius: 24px;
+    }
+
     body {
       margin: 0;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      color: #243127;
-      background: #edf4ee;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(124, 168, 135, 0.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(124, 168, 135, 0.10), transparent 24%),
+        linear-gradient(180deg, #eef5ef 0%, #e9f1eb 100%);
     }
 
     a {
-      color: #3f6f52;
+      color: inherit;
       text-decoration: none;
     }
 
-    a:hover {
-      color: #2e523c;
-    }
-
     .page {
-      max-width: 1180px;
+      max-width: 1220px;
       margin: 0 auto;
-      padding: 24px 20px 48px;
+      padding: 28px 20px 56px;
     }
 
     .top-nav {
       display: flex;
       justify-content: center;
-      gap: 28px;
-      margin-bottom: 20px;
-      font-size: 16px;
-      font-weight: 600;
+      gap: 30px;
+      margin-bottom: 24px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
     }
 
     .top-nav a {
-      color: #3f6f52;
+      color: var(--accent-dark);
+      opacity: 0.88;
       transition: 0.2s ease;
     }
 
+    .top-nav a:hover {
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
     .hero {
-      background: #dcebdd;
-      border-radius: 22px;
-      padding: 28px 34px;
+      background: linear-gradient(135deg, rgba(232, 243, 233, 0.92), rgba(248, 252, 248, 0.90));
+      border: 1px solid rgba(255,255,255,0.65);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      padding: 42px 42px 34px;
       margin-bottom: 26px;
-      box-shadow: 0 10px 28px rgba(37, 70, 47, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -40px;
+      top: -40px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(99, 145, 111, 0.18), transparent 68%);
+      pointer-events: none;
     }
 
     .hero h1 {
       margin: 0;
-      font-size: 42px;
-      color: #1f3324;
       text-align: center;
+      font-size: 50px;
+      letter-spacing: -1px;
+    }
+
+    .hero-sub {
+      margin: 10px auto 0;
+      text-align: center;
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 720px;
+      line-height: 1.7;
     }
 
     .section {
-      background: #f9fcf9;
-      border-radius: 22px;
-      padding: 30px;
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 34px;
       margin-bottom: 24px;
-      box-shadow: 0 10px 28px rgba(37, 70, 47, 0.06);
     }
 
     .section h2 {
-      margin: 0 0 18px;
-      font-size: 30px;
-      color: #1f3324;
+      margin: 0 0 20px;
+      font-size: 34px;
+      letter-spacing: -0.6px;
     }
 
-    .relationship-grid {
+    .relationship-grid,
+    .tennis-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 28px;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 32px;
       align-items: start;
     }
 
@@ -86,29 +134,46 @@
     .tennis-text p,
     .dog-card p {
       font-size: 18px;
-      line-height: 1.8;
-      margin-top: 0;
-      margin-bottom: 16px;
+      line-height: 1.85;
+      color: #22362b;
+      margin: 0 0 18px;
     }
 
-    .photo-collage {
+    .gallery-wrap {
+      background: rgba(236, 244, 237, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 16px;
+    }
+
+    .gallery {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 14px;
     }
 
-    .photo-collage img:first-child {
-      grid-column: 1 / -1;
-      height: 300px;
+    .gallery-main img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      border-radius: 18px;
+      display: block;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
     }
 
-    .photo-collage img {
+    .gallery-strip {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .gallery-strip img {
       width: 100%;
-      height: 190px;
+      height: 175px;
       object-fit: cover;
       border-radius: 16px;
       display: block;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.06);
     }
 
     .dogs-grid {
@@ -118,76 +183,84 @@
     }
 
     .dog-card {
-      background: #eef6ef;
-      border-radius: 18px;
+      background: rgba(240, 247, 241, 0.86);
+      border: 1px solid var(--line);
+      border-radius: 22px;
       padding: 20px;
     }
 
-    .dog-card img {
-      width: 100%;
-      max-height: 340px;
-      object-fit: contain;
-      border-radius: 14px;
+    .dog-photo {
+      background: #e2ece3;
+      border-radius: 18px;
+      padding: 16px;
       margin-bottom: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 360px;
+    }
+
+    .dog-photo img {
+      max-width: 100%;
+      max-height: 320px;
+      width: auto;
+      height: auto;
       display: block;
-      background: #dde8de;
-      padding: 8px;
+      border-radius: 14px;
+      object-fit: contain;
     }
 
     .dog-card h3 {
       margin: 0 0 10px;
-      font-size: 24px;
-      color: #23402b;
+      font-size: 28px;
+      letter-spacing: -0.3px;
     }
 
-    .tennis-grid {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 28px;
-      align-items: center;
+    .tennis-photo {
+      background: rgba(236, 244, 237, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 16px;
     }
 
-    .tennis-image img {
+    .tennis-photo img {
       width: 100%;
-      max-height: 440px;
-      object-fit: cover;
-      border-radius: 18px;
+      height: auto;
       display: block;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+      border-radius: 18px;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.08);
     }
 
     .footer {
       text-align: center;
-      color: #5a6b5d;
+      color: var(--muted);
       font-size: 14px;
-      margin-top: 8px;
+      margin-top: 10px;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 980px) {
       .relationship-grid,
-      .dogs-grid,
-      .tennis-grid {
+      .tennis-grid,
+      .dogs-grid {
         grid-template-columns: 1fr;
       }
 
-      .photo-collage img:first-child,
-      .photo-collage img {
-        height: 240px;
+      .gallery-main img {
+        height: 300px;
       }
 
       .hero h1 {
-        font-size: 35px;
+        font-size: 40px;
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 640px) {
       .page {
-        padding: 18px 14px 34px;
+        padding: 18px 14px 36px;
       }
 
       .top-nav {
         gap: 16px;
-        font-size: 15px;
         flex-wrap: wrap;
       }
 
@@ -197,21 +270,27 @@
       }
 
       .hero h1 {
-        font-size: 30px;
+        font-size: 33px;
       }
 
+      .hero-sub,
       .relationship-text p,
       .tennis-text p,
       .dog-card p {
         font-size: 17px;
       }
 
-      .photo-collage {
+      .gallery-strip {
         grid-template-columns: 1fr;
       }
 
-      .photo-collage img:first-child {
-        grid-column: auto;
+      .gallery-main img,
+      .gallery-strip img {
+        height: auto;
+      }
+
+      .dog-photo {
+        min-height: 280px;
       }
     }
   </style>
@@ -227,6 +306,9 @@
 
     <section class="hero">
       <h1>About Me</h1>
+      <p class="hero-sub">
+        A little more about the people, hobbies, and everyday life that matter most to me outside of work.
+      </p>
     </section>
 
     <section class="section">
@@ -235,22 +317,28 @@
       <div class="relationship-grid">
         <div class="relationship-text">
           <p>
-            Tera and I met in 2020 and got married in 2022. She has been one of the biggest blessings in my life, and I’m grateful for the life we’ve built together.
+            Tera and I met in 2020 and got married in 2022. She has been one of the biggest blessings in my life, and I’m genuinely grateful for the life we’ve built together.
           </p>
 
           <p>
-            We both work from home, so we get to spend a lot of everyday life together, usually with a couple of dogs nearby keeping us company. Outside of work, we enjoy getting out, making memories, and just having fun together.
+            Since we both work from home, we get to share a lot of the ordinary parts of life together too, usually with Raider and Keo nearby acting like honorary office assistants.
           </p>
 
           <p>
-            One of our favorite things to do is go to concerts, and over the past five years we’ve probably been to more than fifty. We also enjoy country dancing at local dancehalls and finding reasons to get out and enjoy life together.
+            Outside of work, we enjoy getting out and making memories together. Over the past five years, we’ve probably been to more than fifty concerts, and we also love country dancing at local dancehalls.
           </p>
         </div>
 
-        <div class="photo-collage">
-          <img src="assets/images/Wicked.jpg" alt="Aaron and Tera at Wicked">
-          <img src="assets/images/Broken_spoke.jpeg" alt="Aaron and Tera at Broken Spoke">
-          <img src="assets/images/houston.png" alt="Aaron and Tera in Houston">
+        <div class="gallery-wrap">
+          <div class="gallery">
+            <div class="gallery-main">
+              <img src="assets/images/Wicked.jpg" alt="Aaron and Tera at Wicked">
+            </div>
+            <div class="gallery-strip">
+              <img src="assets/images/broken_spoke.jpeg" alt="Aaron and Tera at Broken Spoke">
+              <img src="assets/images/houston.png" alt="Aaron and Tera in Houston">
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -260,18 +348,22 @@
 
       <div class="dogs-grid">
         <div class="dog-card">
-          <img src="assets/images/keo.png" alt="Keo">
+          <div class="dog-photo">
+            <img src="assets/images/keo.png" alt="Keo">
+          </div>
           <h3>Keo</h3>
           <p>
-            Keo is a Chaweeny and one of our full-time office mates. He is about seven years old and definitely does his part to keep the house interesting during the workday.
+            Keo is a Chaweeny and one of our full-time office mates. He’s about seven years old and definitely does his part to keep the house interesting during the workday.
           </p>
         </div>
 
         <div class="dog-card">
-          <img src="assets/images/raider.png" alt="Raider">
+          <div class="dog-photo">
+            <img src="assets/images/raider.png" alt="Raider">
+          </div>
           <h3>Raider</h3>
           <p>
-            Raider is a Chihuahua and the other member of the home office team. He is about nine years old and, like Keo, takes his role as office companion very seriously.
+            Raider is a Chihuahua and the other member of the home office team. He’s about nine years old and, like Keo, takes his role as office companion very seriously.
           </p>
         </div>
       </div>
@@ -281,7 +373,7 @@
       <h2>Tennis</h2>
 
       <div class="tennis-grid">
-        <div class="tennis-image">
+        <div class="tennis-photo">
           <img src="assets/images/tennis.jpeg" alt="Aaron playing tennis">
         </div>
 
