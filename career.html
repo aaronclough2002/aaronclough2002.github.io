@@ -6,12 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     :root {
       --bg: linear-gradient(180deg, #eef5ef 0%, #e7f0e9 100%);
-      --panel: rgba(255, 255, 255, 0.95);
-      --panel-soft: #f6fbf7;
+      --panel: rgba(255, 255, 255, 0.94);
+      --panel-soft: #f5faf6;
       --hero: #dcebdd;
       --text: #1c2f25;
       --muted: #5f7165;
@@ -29,8 +31,13 @@
       background: var(--bg);
     }
 
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
     .page {
-      max-width: 1220px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 30px 20px 60px;
     }
@@ -46,36 +53,69 @@
 
     .top-nav a {
       color: var(--accent);
-      text-decoration: none;
+      transition: 0.2s ease;
+    }
+
+    .top-nav a:hover {
+      color: var(--accent-dark);
     }
 
     .hero {
       background: var(--hero);
       border-radius: var(--radius);
-      padding: 34px;
-      margin-bottom: 20px;
-      text-align: center;
+      padding: 36px;
+      margin-bottom: 22px;
       box-shadow: var(--shadow);
+      text-align: center;
     }
 
     .hero h1 {
-      margin: 0 0 10px;
+      margin: 0 0 12px;
       font-size: 42px;
+      letter-spacing: -0.6px;
     }
 
     .hero p {
-      max-width: 900px;
+      max-width: 860px;
       margin: 0 auto;
       font-size: 19px;
       line-height: 1.8;
+      color: #294032;
+    }
+
+    .top-strip {
+      background: var(--panel);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .top-strip-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .top-strip-text {
+      font-size: 16px;
+      color: #294032;
+      font-weight: 600;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     .button {
+      display: inline-block;
       padding: 12px 18px;
       border-radius: 10px;
       font-weight: 700;
-      text-decoration: none;
-      display: inline-block;
       transition: 0.2s ease;
     }
 
@@ -91,58 +131,110 @@
 
     .button.secondary {
       background: white;
-      border: 1px solid var(--line);
       color: var(--accent-dark);
+      border: 1px solid var(--line);
+    }
+
+    .button.secondary:hover {
+      background: #f8fbf8;
+      transform: translateY(-1px);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .pill {
+      background: #e7f1e8;
+      color: #294032;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      border: 1px solid rgba(60, 90, 69, 0.08);
     }
 
     .section {
       background: var(--panel);
       border-radius: var(--radius);
-      padding: 28px;
+      padding: 32px;
       margin-bottom: 24px;
       box-shadow: var(--shadow);
     }
 
     .section h2 {
-      margin: 0 0 16px;
-      font-size: 28px;
+      margin: 0 0 18px;
+      font-size: 30px;
+      letter-spacing: -0.4px;
     }
 
-    .two-col {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 24px;
-    }
-
-    p {
+    .section p {
       font-size: 18px;
-      line-height: 1.8;
+      line-height: 1.85;
+      color: #24362b;
+      margin-top: 0;
+      margin-bottom: 18px;
     }
 
-    .card {
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .summary-panel {
       background: var(--panel-soft);
       border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 20px;
-      transition: 0.2s ease;
+      border-radius: 20px;
+      padding: 22px;
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+    .summary-panel h3 {
+      margin: 0 0 14px;
+      font-size: 23px;
     }
 
-    .card-list {
+    .summary-list {
       display: grid;
-      gap: 14px;
-    }
-
-    .focus-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
 
+    .summary-item {
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(60, 90, 69, 0.08);
+    }
+
+    .summary-item:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .summary-item strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 17px;
+      color: var(--accent-dark);
+    }
+
+    .summary-item span {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #35503f;
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .value-card,
+    .impact-card,
+    .project-card,
     .focus-card {
       background: var(--panel-soft);
       border: 1px solid var(--line);
@@ -151,217 +243,317 @@
       transition: 0.2s ease;
     }
 
+    .value-card:hover,
+    .impact-card:hover,
+    .project-card:hover,
     .focus-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
     }
 
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 12px;
+    .value-card h3,
+    .impact-card h3,
+    .project-card h3,
+    .focus-card h3 {
+      margin: 0 0 12px;
+      font-size: 22px;
     }
 
-    .pill {
-      background: #e6f1e8;
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 600;
-      transition: 0.2s ease;
+    .value-card p,
+    .impact-card p,
+    .project-card p,
+    .focus-card p {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.8;
     }
 
-    .pill:hover {
-      background: #d6e8da;
-      transform: translateY(-1px);
+    .impact-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
     }
 
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      gap: 18px;
+    }
+
+    .project-links {
+      margin-top: 16px;
     }
 
     footer {
       text-align: center;
       font-size: 14px;
       color: var(--muted);
-      margin-top: 10px;
+      margin-top: 12px;
     }
 
-    @media (max-width: 900px) {
-      .two-col,
+    @media (max-width: 980px) {
+      .story-grid,
+      .value-grid,
       .focus-grid,
       .projects-grid {
         grid-template-columns: 1fr;
       }
     }
+
+    @media (max-width: 700px) {
+      .page {
+        padding: 20px 14px 40px;
+      }
+
+      .hero,
+      .top-strip,
+      .section {
+        padding: 22px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .hero p,
+      .section p,
+      .value-card p,
+      .impact-card p,
+      .project-card p,
+      .focus-card p {
+        font-size: 17px;
+      }
+    }
   </style>
 </head>
-
 <body>
-<div class="page">
+  <div class="page">
 
-  <div class="top-nav">
-    <a href="index.html">Home</a>
-    <a href="career.html">Career</a>
-    <a href="about.html">About Me</a>
-  </div>
-
-  <div class="hero">
-    <h1>Career</h1>
-    <p>
-      I’ve built my career around helping teams bring structure, clarity, and momentum to complex work across enterprise systems, startups, and technical environments.
-    </p>
-  </div>
-
-  <!-- Resume + Certs -->
-  <div class="section" style="padding:20px;">
-    <div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;">
-      <a class="button secondary" href="assets/docs/resume.pdf" target="_blank">View Resume</a>
+    <div class="top-nav">
+      <a href="index.html">Home</a>
+      <a href="career.html">Career</a>
+      <a href="about.html">About Me</a>
     </div>
 
-    <div class="pill-row">
-      <span class="pill">PMP (Project Management Professional)</span>
-      <span class="pill">CSM (Certified ScrumMaster)</span>
-      <span class="pill">CSPO (Certified Scrum Product Owner)</span>
-      <span class="pill">CBAP (Certified Business Analysis Professional)</span>
-      <span class="pill">AWS CCP (AWS Certified Cloud Practitioner)</span>
-      <span class="pill">Salesforce Associate</span>
+    <div class="hero">
+      <h1>Career</h1>
+      <p>
+        I’ve built my career around helping teams bring structure, clarity, and momentum to complex work across enterprise systems, startups, and technical environments.
+      </p>
     </div>
-  </div>
 
-  <!-- Story -->
-  <div class="section">
-    <h2>How I Got Here</h2>
-
-    <div class="two-col">
-      <div>
-        <p>
-          I started my career as a high school technology teacher and coach, teaching courses such as Business Information Systems, Web Design, Video Production, and Digital Media while coaching football and soccer.
-        </p>
-
-        <p>
-          I also led student teams responsible for live production at football games, including cameras and jumbotron operations. That experience built a strong foundation in leadership, communication, and organization.
-        </p>
-
-        <p>
-          From there, I entered a software development program at the University of Texas and transitioned into enterprise technology, working across project management, product ownership, and technical delivery roles.
-        </p>
-      </div>
-
-      <div class="card-list">
-        <div class="card">
-          <h3>What I Bring</h3>
-          <p>I bring structure, clarity, and momentum to complex work.</p>
-        </div>
-
-        <div class="card">
-          <h3>Where I’ve Worked</h3>
-          <p>Enterprise systems, startups, product teams, and technical environments.</p>
-        </div>
-
-        <div class="card">
-          <h3>How I Work</h3>
-          <p>I connect business and technical teams to drive results.</p>
+    <div class="top-strip">
+      <div class="top-strip-inner">
+        <div class="top-strip-text">Resume and certifications</div>
+        <div class="button-row">
+          <a class="button secondary" href="assets/docs/resume.pdf" target="_blank">View Resume</a>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- Value -->
-  <div class="section">
-    <h2>How I Add Value</h2>
-
-    <div class="card-list">
-      <div class="card">
-        <h3>Bringing Structure to Chaos</h3>
-        <p>I step into complex situations and bring clarity and direction.</p>
-      </div>
-
-      <div class="card">
-        <h3>Connecting Teams</h3>
-        <p>I bridge communication between stakeholders and engineering teams.</p>
-      </div>
-
-      <div class="card">
-        <h3>Driving Momentum</h3>
-        <p>I keep work moving forward through prioritization and execution.</p>
+      <div class="pill-row">
+        <span class="pill">PMP (Project Management Professional)</span>
+        <span class="pill">CSM (Certified ScrumMaster)</span>
+        <span class="pill">CSPO (Certified Scrum Product Owner)</span>
+        <span class="pill">CBAP (Certified Business Analysis Professional)</span>
+        <span class="pill">AWS CCP (AWS Certified Cloud Practitioner)</span>
+        <span class="pill">Salesforce Associate</span>
       </div>
     </div>
-  </div>
 
-  <!-- Impact -->
-  <div class="section">
-    <h2>Selected Impact</h2>
+    <div class="section">
+      <h2>How I Got Here</h2>
 
-    <div class="card-list">
-      <div class="card">
-        <h3>Scientific Platform Delivery</h3>
-        <p>
-          Led the full rollout of an international scientific platform across 8 sites, owned vendor relationships, coordinated testing with scientists, and helped define the most cost-effective AWS model.
-        </p>
+      <div class="story-grid">
+        <div>
+          <p>
+            I started my career as a high school technology teacher and coach, teaching courses such as Business Information Systems, Web Design, Video Production, and Digital Media while coaching football and soccer.
+          </p>
+
+          <p>
+            I also led student teams responsible for live production at football games, including cameras and jumbotron operations. That experience built a strong foundation in leadership, communication, and organization.
+          </p>
+
+          <p>
+            From there, I entered a software development program at the University of Texas and transitioned into enterprise technology, working across project management, product ownership, technical business analysis, and delivery leadership roles.
+          </p>
+        </div>
+
+        <div class="summary-panel">
+          <h3>At a Glance</h3>
+
+          <div class="summary-list">
+            <div class="summary-item">
+              <strong>Background</strong>
+              <span>Teacher, coach, analyst, product owner, and project manager.</span>
+            </div>
+
+            <div class="summary-item">
+              <strong>Environments</strong>
+              <span>Enterprise organizations, startups, product teams, and regulated technology settings.</span>
+            </div>
+
+            <div class="summary-item">
+              <strong>Strength</strong>
+              <span>Bridging business needs and technical execution while keeping delivery moving.</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Focus -->
-  <div class="section">
-    <h2>Areas of Focus</h2>
+    <div class="section">
+      <h2>How I Add Value</h2>
 
-    <div class="focus-grid">
-      <div class="focus-card">
-        <h3>Enterprise Delivery</h3>
-      </div>
-      <div class="focus-card">
-        <h3>Technical Platforms</h3>
-      </div>
-      <div class="focus-card">
-        <h3>Product & Analysis</h3>
+      <div class="value-grid">
+        <div class="value-card">
+          <h3>Bringing Structure to Complex Work</h3>
+          <p>
+            I’m at my best when a project has a lot of moving parts, unclear ownership, or competing priorities. I help teams organize the work, define what matters most, and move forward with clarity.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <h3>Connecting Business and Technical Teams</h3>
+          <p>
+            I naturally operate between stakeholders, product teams, and engineering. I help turn business needs into actionable work and keep people aligned on what success actually looks like.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <h3>Asking the Right Questions Early</h3>
+          <p>
+            A lot of delivery issues come from assumptions or gaps in understanding. I tend to spot those early by asking the questions that bring hidden risks and unclear expectations to the surface.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <h3>Maintaining Momentum</h3>
+          <p>
+            I focus on keeping work moving. That means removing blockers, prioritizing thoughtfully, and making progress visible so teams and leaders can make decisions with confidence.
+          </p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Tools -->
-  <div class="section">
-    <h2>Tools & Technologies</h2>
+    <div class="section">
+      <h2>Selected Impact</h2>
 
-    <div class="pill-row">
-      <span class="pill">Workday</span>
-      <span class="pill">AWS</span>
-      <span class="pill">Salesforce</span>
-      <span class="pill">Jira</span>
-      <span class="pill">Confluence</span>
-      <span class="pill">Python</span>
-      <span class="pill">JavaScript</span>
-      <span class="pill">SQL</span>
+      <div class="impact-list">
+        <div class="impact-card">
+          <h3>Enterprise Workday Delivery</h3>
+          <p>
+            Supported large-scale HR and payroll platform work in a complex enterprise environment, helping coordinate cross-functional execution across integrations, reporting, and operational issues tied to a major post-go-live effort.
+          </p>
+        </div>
+
+        <div class="impact-card">
+          <h3>Scientific Platform Delivery</h3>
+          <p>
+            Led the full rollout of an international scientific imaging platform across 8 European sites, owned the vendor relationship and overall delivery strategy, coordinated testing directly with scientists at each site, and performed analysis that helped determine the most cost-effective AWS implementation model.
+          </p>
+        </div>
+
+        <div class="impact-card">
+          <h3>Product and Search Work</h3>
+          <p>
+            Worked across search relevance, backlog prioritization, workflow design, and delivery coordination, helping teams make better product decisions using customer behavior, business context, and practical execution tradeoffs.
+          </p>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <!-- AI -->
-  <div class="section">
-    <h2>AI Projects</h2>
+    <div class="section">
+      <h2>Areas of Focus</h2>
 
-    <div class="projects-grid">
-      <a class="card" href="https://ai-meeting-summary-tool.streamlit.app/" target="_blank">
-        AI Meeting Summary Tool
-      </a>
+      <div class="focus-grid">
+        <div class="focus-card">
+          <h3>Enterprise Delivery</h3>
+          <p>
+            Large stakeholder groups, implementations, hypercare, reporting, issue triage, and cross-functional coordination.
+          </p>
+        </div>
 
-      <a class="card" href="https://ai-project-status-generator.streamlit.app/" target="_blank">
-        AI Project Status Generator
-      </a>
+        <div class="focus-card">
+          <h3>Technical Platforms</h3>
+          <p>
+            SaaS systems, scientific platforms, vendor coordination, requirements, testing, and cloud-based environments.
+          </p>
+        </div>
 
-      <a class="card" href="https://cet-knowledge-base-c5cbdhyynbyggssdnbgywh.streamlit.app/" target="_blank">
-        RAG Knowledge Base Search
-      </a>
+        <div class="focus-card">
+          <h3>Product & Analysis</h3>
+          <p>
+            Backlog prioritization, process flows, UAT, analytics, and translating business needs into delivery-ready work.
+          </p>
+        </div>
+      </div>
     </div>
+
+    <div class="section">
+      <h2>Tools & Technologies</h2>
+
+      <div class="pill-row" style="margin-top:0;">
+        <span class="pill">Workday</span>
+        <span class="pill">AWS</span>
+        <span class="pill">Salesforce</span>
+        <span class="pill">Jira</span>
+        <span class="pill">Confluence</span>
+        <span class="pill">Azure DevOps</span>
+        <span class="pill">Tableau</span>
+        <span class="pill">Excel</span>
+        <span class="pill">SharePoint</span>
+        <span class="pill">Miro</span>
+        <span class="pill">Python</span>
+        <span class="pill">JavaScript</span>
+        <span class="pill">SQL</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>AI Projects</h2>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>AI Meeting Summary Tool</h3>
+          <p>
+            A tool that turns meeting transcripts into clear summaries and action items, designed around practical productivity and communication.
+          </p>
+          <div class="project-links">
+            <a class="button primary" href="https://ai-meeting-summary-tool.streamlit.app/" target="_blank">Open Project</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>AI Project Status Generator</h3>
+          <p>
+            A project-focused tool built to generate polished status updates more efficiently by combining project management context with AI assistance.
+          </p>
+          <div class="project-links">
+            <a class="button primary" href="https://ai-project-status-generator.streamlit.app/" target="_blank">Open Project</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>RAG Knowledge Base Search</h3>
+          <p>
+            A retrieval-based document search app that allows users to ask questions across uploaded files and receive grounded answers back.
+          </p>
+          <div class="project-links">
+            <a class="button primary" href="https://cet-knowledge-base-c5cbdhyynbyggssdnbgywh.streamlit.app/" target="_blank">Open Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      © 2026 Aaron Clough
+    </footer>
+
   </div>
-
-  <footer>
-    © 2026 Aaron Clough
-  </footer>
-
-</div>
 </body>
 </html>
