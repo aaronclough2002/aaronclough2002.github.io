@@ -14,60 +14,64 @@
       margin: 0;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       color: #243127;
-      background: #eef5ef;
+      background: #edf4ee;
     }
 
     a {
-      color: #2f5d43;
+      color: #3f6f52;
       text-decoration: none;
     }
 
     a:hover {
-      text-decoration: underline;
+      color: #2e523c;
     }
 
     .page {
-      max-width: 1150px;
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 36px 20px 60px;
+      padding: 24px 20px 48px;
     }
 
     .top-nav {
-      margin-bottom: 24px;
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-bottom: 20px;
       font-size: 16px;
       font-weight: 600;
     }
 
     .top-nav a {
-      margin-right: 18px;
+      color: #3f6f52;
+      transition: 0.2s ease;
     }
 
     .hero {
       background: #dcebdd;
       border-radius: 22px;
-      padding: 38px 34px;
-      margin-bottom: 28px;
+      padding: 36px 34px;
+      margin-bottom: 26px;
       box-shadow: 0 10px 28px rgba(37, 70, 47, 0.08);
     }
 
     .hero h1 {
       margin: 0 0 10px;
-      font-size: 44px;
+      font-size: 42px;
       color: #1f3324;
     }
 
     .hero p {
       margin: 0;
       font-size: 19px;
-      line-height: 1.75;
-      max-width: 800px;
+      line-height: 1.8;
+      max-width: 820px;
     }
 
     .section {
-      background: #f8fcf8;
+      background: #f9fcf9;
       border-radius: 22px;
       padding: 30px;
-      margin-bottom: 26px;
+      margin-bottom: 24px;
       box-shadow: 0 10px 28px rgba(37, 70, 47, 0.06);
     }
 
@@ -79,7 +83,7 @@
 
     .relationship-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: 1.1fr 0.9fr;
       gap: 28px;
       align-items: start;
     }
@@ -88,7 +92,7 @@
     .tennis-text p,
     .dog-card p {
       font-size: 18px;
-      line-height: 1.75;
+      line-height: 1.8;
       margin-top: 0;
       margin-bottom: 16px;
     }
@@ -101,7 +105,7 @@
 
     .photo-collage img:first-child {
       grid-column: 1 / -1;
-      height: 320px;
+      height: 300px;
     }
 
     .photo-collage img {
@@ -120,18 +124,20 @@
     }
 
     .dog-card {
-      background: #edf6ee;
+      background: #eef6ef;
       border-radius: 18px;
       padding: 20px;
     }
 
     .dog-card img {
       width: 100%;
-      height: 320px;
-      object-fit: cover;
+      max-height: 340px;
+      object-fit: contain;
       border-radius: 14px;
       margin-bottom: 16px;
       display: block;
+      background: #dde8de;
+      padding: 8px;
     }
 
     .dog-card h3 {
@@ -149,7 +155,7 @@
 
     .tennis-image img {
       width: 100%;
-      height: 420px;
+      max-height: 440px;
       object-fit: cover;
       border-radius: 18px;
       display: block;
@@ -160,13 +166,13 @@
       text-align: center;
       color: #5a6b5d;
       font-size: 14px;
-      margin-top: 10px;
+      margin-top: 8px;
     }
 
     @media (max-width: 900px) {
       .relationship-grid,
-      .tennis-grid,
-      .dogs-grid {
+      .dogs-grid,
+      .tennis-grid {
         grid-template-columns: 1fr;
       }
 
@@ -175,19 +181,20 @@
         height: 240px;
       }
 
-      .dog-card img,
-      .tennis-image img {
-        height: auto;
-      }
-
       .hero h1 {
-        font-size: 36px;
+        font-size: 35px;
       }
     }
 
     @media (max-width: 600px) {
       .page {
-        padding: 20px 14px 40px;
+        padding: 18px 14px 34px;
+      }
+
+      .top-nav {
+        gap: 16px;
+        font-size: 15px;
+        flex-wrap: wrap;
       }
 
       .hero,
@@ -196,7 +203,7 @@
       }
 
       .hero h1 {
-        font-size: 31px;
+        font-size: 30px;
       }
 
       .hero p,
@@ -219,11 +226,11 @@
 <body>
   <div class="page">
 
-    <div class="top-nav">
+    <nav class="top-nav">
       <a href="index.html">Home</a>
       <a href="work.html">Work</a>
       <a href="about.html">About Me</a>
-    </div>
+    </nav>
 
     <section class="hero">
       <h1>About Me</h1>
@@ -238,15 +245,15 @@
       <div class="relationship-grid">
         <div class="relationship-text">
           <p>
-            Tera and I met in <strong>[ADD YEAR OR DATE]</strong> and got married in <strong>[ADD YEAR OR DATE]</strong>. She has been one of the biggest blessings in my life, and I’m grateful every day for the life we’ve built together.
+            Tera and I met in <strong>[ADD YEAR OR DATE]</strong> and got married in <strong>[ADD YEAR OR DATE]</strong>. She has been one of the biggest blessings in my life, and I’m grateful for the life we’ve built together.
           </p>
 
           <p>
-            We enjoy spending time together in all kinds of ways, from everyday life at home to getting out and making memories. We both work from home, so there is a good chance you’ll find us sharing office space with a couple of very spoiled dogs nearby.
+            We both work from home, so we spend a lot of time together in the best kind of ordinary ways, usually with a couple of dogs nearby keeping us company. Outside of work, we enjoy getting out, making memories, and just having fun together.
           </p>
 
           <p>
-            We also love going to concerts and have probably been to more than fifty over the past five years. We enjoy country dancing at local dancehalls and always appreciate any chance to get out, have fun, and spend time together.
+            One of our favorite things to do is go to concerts, and over the past five years we’ve probably been to more than fifty. We also enjoy country dancing at local dancehalls and finding reasons to get out and enjoy life together.
           </p>
         </div>
 
@@ -266,7 +273,7 @@
           <img src="assets/images/keo.png" alt="Keo">
           <h3>Keo</h3>
           <p>
-            Keo is a Chaweeny and one of our full-time office mates. He is about seven years old and definitely knows how to keep workdays interesting.
+            Keo is a Chaweeny and one of our full-time office mates. He is about seven years old and definitely does his part to keep the house interesting during the workday.
           </p>
         </div>
 
@@ -274,7 +281,7 @@
           <img src="assets/images/raider.png" alt="Raider">
           <h3>Raider</h3>
           <p>
-            Raider is a Chihuahua and the other member of the home office team. He is about nine years old and, like Keo, plays an important role in daily morale around the house.
+            Raider is a Chihuahua and the other member of the home office team. He is about nine years old and, like Keo, takes his role as office companion very seriously.
           </p>
         </div>
       </div>
@@ -290,15 +297,15 @@
 
         <div class="tennis-text">
           <p>
-            I’ve been playing tennis for about the past ten years and have traveled all over Texas to play in tournaments. I’m not going to pretend I’m some elite player, but I am very thankful the sport has tournament levels for players like me.
+            I’ve been playing tennis for about the past ten years and have traveled all over Texas to play in tournaments. I’m not going to pretend I’m some elite player, but I’m very thankful the sport has levels for people like me.
           </p>
 
           <p>
-            Tennis has given me the chance to compete, improve, and enjoy a lot of great experiences along the way. Two of the coolest moments have been getting to meet John Newcombe at his tennis ranch and getting to see Venus Williams play in person.
+            Tennis has given me a lot of great experiences over the years. Two of the coolest were getting to meet John Newcombe at his tennis ranch and getting to see Venus Williams play in person.
           </p>
 
           <p>
-            More than anything, tennis has been a fun challenge and a great way to spend time, stay active, and make memories over the years.
+            More than anything, it has been a fun challenge, a great outlet, and a hobby that has brought a lot of good memories.
           </p>
         </div>
       </div>
