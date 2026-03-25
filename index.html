@@ -1,219 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Aaron Clough</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<title>Aaron Clough</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      color: #222;
-      background: #f7f7f7;
-    }
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    color: #1f2d23;
+    background: #eef5ef;
+}
 
-    .page {
-      max-width: 1150px;
-      margin: 0 auto;
-      padding: 40px 24px 60px;
-    }
+/* HEADER */
+.header {
+    text-align: center;
+    padding: 30px 20px 10px;
+}
 
+.header h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+/* MAIN SECTION */
+.container {
+    max-width: 1100px;
+    margin: 20px auto 50px;
+    padding: 0 20px;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+}
+
+/* TEXT */
+.hero-text {
+    flex: 1;
+}
+
+.hero-text p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+/* IMAGE */
+.hero-image {
+    flex: 0 0 320px;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+/* BUTTONS */
+.buttons {
+    margin-top: 20px;
+}
+
+.buttons a {
+    display: inline-block;
+    margin-right: 12px;
+    margin-top: 10px;
+    padding: 12px 18px;
+    background: #3f6f52;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.buttons a:hover {
+    background: #2f5640;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    font-size: 14px;
+    color: #5f6f63;
+    margin-bottom: 20px;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
     .hero {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 48px;
-      background: #ffffff;
-      border-radius: 18px;
-      padding: 48px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-    }
-
-    .hero-text {
-      flex: 1 1 58%;
-    }
-
-    .hero-text h1 {
-      margin: 0 0 20px;
-      font-size: 48px;
-      line-height: 1.1;
-    }
-
-    .hero-text p {
-      font-size: 20px;
-      line-height: 1.8;
-      margin: 0 0 18px;
-    }
-
-    .hero-links {
-      margin-top: 28px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .hero-links a {
-      display: inline-block;
-      text-decoration: none;
-      color: white;
-      background: #1f4f8f;
-      padding: 14px 22px;
-      border-radius: 10px;
-      font-weight: 600;
-      transition: 0.2s ease;
-    }
-
-    .hero-links a:hover {
-      background: #163a69;
-      transform: translateY(-1px);
+        flex-direction: column;
+        padding: 25px;
     }
 
     .hero-image {
-      flex: 0 0 360px;
-      text-align: center;
+        width: 100%;
+        max-width: 300px;
     }
 
     .hero-image img {
-      width: 100%;
-      max-width: 360px;
-      height: 420px;
-      object-fit: cover;
-      border-radius: 18px;
-      display: block;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        height: auto;
     }
-
-    .section {
-      margin-top: 36px;
-      background: #ffffff;
-      border-radius: 18px;
-      padding: 32px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    }
-
-    .section h2 {
-      margin-top: 0;
-      margin-bottom: 14px;
-      font-size: 28px;
-    }
-
-    .section p {
-      margin: 0;
-      font-size: 18px;
-      line-height: 1.7;
-    }
-
-    footer {
-      text-align: center;
-      color: #666;
-      font-size: 14px;
-      margin-top: 28px;
-    }
-
-    @media (max-width: 900px) {
-      .hero {
-        flex-direction: column-reverse;
-        padding: 30px;
-      }
-
-      .hero-text h1 {
-        font-size: 38px;
-      }
-
-      .hero-text p {
-        font-size: 18px;
-      }
-
-      .hero-image {
-        flex: none;
-        width: 100%;
-      }
-
-      .hero-image img {
-        max-width: 320px;
-        height: 380px;
-        margin: 0 auto;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .page {
-        padding: 20px 16px 40px;
-      }
-
-      .hero {
-        padding: 22px;
-        gap: 24px;
-      }
-
-      .hero-text h1 {
-        font-size: 32px;
-      }
-
-      .hero-text p {
-        font-size: 17px;
-      }
-
-      .hero-links a {
-        width: 100%;
-        text-align: center;
-      }
-
-      .section {
-        padding: 22px;
-      }
-    }
-  </style>
+}
+</style>
 </head>
+
 <body>
-  <div class="page">
-    <section class="hero">
-      <div class="hero-text">
-        <h1>Aaron Clough</h1>
 
-        <p>
-          Welcome to my page, and thanks for stopping by to learn more about me.
-          I was born in South Texas, moved to Central Texas when I was a teenager,
-          and have been here ever since.
-        </p>
+<div class="header">
+    <h1>Aaron Clough</h1>
+</div>
 
-        <p>
-          I’m married to Tera, and we have two dogs, Raider and Keo. I’m a project
-          manager by day, and a sub-par tennis player during my free time.
-        </p>
+<div class="container">
 
-        <p>
-          To learn more about both my work and my life outside of work, please visit
-          the pages below.
-        </p>
+    <div class="hero">
 
-        <div class="hero-links">
-          <a href="work.html">View My Work</a>
-          <a href="about.html">More About Me</a>
+        <div class="hero-text">
+            <p>
+                Welcome to my page, and thanks for stopping by to learn more about me.
+                I was born in South Texas, moved to Central Texas as a teenager, and have been here ever since.
+            </p>
+
+            <p>
+                I’m married to Tera, and we have two dogs, Raider and Keo. I’m a project manager by day,
+                and a sub-par tennis player during my free time.
+            </p>
+
+            <p>
+                To learn more about both my work and life outside of work, feel free to explore the pages below.
+            </p>
+
+            <div class="buttons">
+                <a href="work.html">View My Work</a>
+                <a href="about.html">More About Me</a>
+            </div>
         </div>
-      </div>
 
-      <div class="hero-image">
-        <img src="assets/images/profile.jpg" alt="Aaron Clough" />
-      </div>
-    </section>
+        <div class="hero-image">
+            <img src="assets/images/me.png" alt="Aaron Clough">
+        </div>
 
-    <section class="section">
-      <h2>Welcome</h2>
-      <p>
-        This site is a place to share a little more about who I am, what I do,
-        and the projects and interests that matter to me.
-      </p>
-    </section>
+    </div>
 
-    <footer>
-      © 2026 Aaron Clough
-    </footer>
-  </div>
+</div>
+
+<footer>
+    © 2026 Aaron Clough
+</footer>
+
 </body>
 </html>

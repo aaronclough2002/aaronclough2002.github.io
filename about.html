@@ -2,67 +2,311 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>About Me | Aaron Clough</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About | Aaron Clough</title>
-  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: #243127;
+      background: #eef5ef;
+    }
+
+    a {
+      color: #2f5d43;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 36px 20px 60px;
+    }
+
+    .top-nav {
+      margin-bottom: 24px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .top-nav a {
+      margin-right: 18px;
+    }
+
+    .hero {
+      background: #dcebdd;
+      border-radius: 22px;
+      padding: 38px 34px;
+      margin-bottom: 28px;
+      box-shadow: 0 10px 28px rgba(37, 70, 47, 0.08);
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 44px;
+      color: #1f3324;
+    }
+
+    .hero p {
+      margin: 0;
+      font-size: 19px;
+      line-height: 1.75;
+      max-width: 800px;
+    }
+
+    .section {
+      background: #f8fcf8;
+      border-radius: 22px;
+      padding: 30px;
+      margin-bottom: 26px;
+      box-shadow: 0 10px 28px rgba(37, 70, 47, 0.06);
+    }
+
+    .section h2 {
+      margin: 0 0 18px;
+      font-size: 30px;
+      color: #1f3324;
+    }
+
+    .relationship-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .relationship-text p,
+    .tennis-text p,
+    .dog-card p {
+      font-size: 18px;
+      line-height: 1.75;
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
+
+    .photo-collage {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .photo-collage img:first-child {
+      grid-column: 1 / -1;
+      height: 320px;
+    }
+
+    .photo-collage img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      border-radius: 16px;
+      display: block;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    .dogs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .dog-card {
+      background: #edf6ee;
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .dog-card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 14px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .dog-card h3 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      color: #23402b;
+    }
+
+    .tennis-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .tennis-image img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 18px;
+      display: block;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    .footer {
+      text-align: center;
+      color: #5a6b5d;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 900px) {
+      .relationship-grid,
+      .tennis-grid,
+      .dogs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-collage img:first-child,
+      .photo-collage img {
+        height: 240px;
+      }
+
+      .dog-card img,
+      .tennis-image img {
+        height: auto;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding: 20px 14px 40px;
+      }
+
+      .hero,
+      .section {
+        padding: 22px;
+      }
+
+      .hero h1 {
+        font-size: 31px;
+      }
+
+      .hero p,
+      .relationship-text p,
+      .tennis-text p,
+      .dog-card p {
+        font-size: 17px;
+      }
+
+      .photo-collage {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-collage img:first-child {
+        grid-column: auto;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="index.html">Aaron Clough</a>
-      <nav>
-        <a href="about.html" class="active">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="outside-work.html">Outside Work</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <div class="page">
 
-  <main>
-    <section class="page-hero small">
-      <div class="container">
-        <p class="eyebrow">About</p>
-        <h1>A little more about me</h1>
-        <p class="hero-text narrow">
-          The short version: I like meaningful work, clear communication, tennis, good music, trying new things, and improving systems that aren’t working the way they should.
-        </p>
+    <div class="top-nav">
+      <a href="index.html">Home</a>
+      <a href="work.html">Work</a>
+      <a href="about.html">About Me</a>
+    </div>
+
+    <section class="hero">
+      <h1>About Me</h1>
+      <p>
+        This page gives a more personal look at the people, pets, and hobbies that make up a big part of my life outside of work.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Tera and Me</h2>
+
+      <div class="relationship-grid">
+        <div class="relationship-text">
+          <p>
+            Tera and I met in <strong>[ADD YEAR OR DATE]</strong> and got married in <strong>[ADD YEAR OR DATE]</strong>. She has been one of the biggest blessings in my life, and I’m grateful every day for the life we’ve built together.
+          </p>
+
+          <p>
+            We enjoy spending time together in all kinds of ways, from everyday life at home to getting out and making memories. We both work from home, so there is a good chance you’ll find us sharing office space with a couple of very spoiled dogs nearby.
+          </p>
+
+          <p>
+            We also love going to concerts and have probably been to more than fifty over the past five years. We enjoy country dancing at local dancehalls and always appreciate any chance to get out, have fun, and spend time together.
+          </p>
+        </div>
+
+        <div class="photo-collage">
+          <img src="assets/images/wicked.jpg" alt="Aaron and Tera at Wicked">
+          <img src="assets/images/broken_spoke.jpeg" alt="Aaron and Tera at Broken Spoke">
+          <img src="assets/images/houston.png" alt="Aaron and Tera in Houston">
+        </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="container split-section">
-        <div class="card prose">
+      <h2>Our Dogs</h2>
+
+      <div class="dogs-grid">
+        <div class="dog-card">
+          <img src="assets/images/keo.png" alt="Keo">
+          <h3>Keo</h3>
           <p>
-            Professionally, I’ve spent much of my career leading projects, solving problems, and helping teams navigate complexity. I like bringing structure to messy situations, keeping people aligned, and moving work forward without making things more complicated than they need to be.
-          </p>
-          <p>
-            Before project management became my main path, I was a high school computer teacher and coach. That experience still shows up in how I work today. I enjoy explaining things clearly, helping people connect the dots, and creating systems that make life easier instead of harder.
-          </p>
-          <p>
-            Personally, I’m married to my wife Tera, and she’s a huge part of my life. I also love tennis, sports in general, music of almost every kind, trying new food, and taking on home improvement projects around the house. I’m naturally analytical, so I tend to enjoy anything that involves improving, optimizing, or figuring out how something can work better.
-          </p>
-          <p>
-            More recently, I’ve been exploring AI through hands-on projects. I don’t pretend to be something I’m not, but I do genuinely enjoy learning new tools and applying them in practical ways. That’s been one of the most energizing things I’ve worked on in a long time.
+            Keo is a Chaweeny and one of our full-time office mates. He is about seven years old and definitely knows how to keep workdays interesting.
           </p>
         </div>
 
-        <div class="card side-stack">
-          <img src="assets/images/houston.png" alt="Aaron and Tera" class="section-image" />
-          <div class="mini-note">
-            <h3>A few quick facts</h3>
-            <ul class="clean-list">
-              <li>Former high school computer teacher and coach</li>
-              <li>Big tennis person</li>
-              <li>Married to Tera</li>
-              <li>Enjoys music, sports, and trying new food</li>
-              <li>Likes home improvement projects</li>
-              <li>Naturally analytical and curious</li>
-            </ul>
-          </div>
+        <div class="dog-card">
+          <img src="assets/images/raider.png" alt="Raider">
+          <h3>Raider</h3>
+          <p>
+            Raider is a Chihuahua and the other member of the home office team. He is about nine years old and, like Keo, plays an important role in daily morale around the house.
+          </p>
         </div>
       </div>
     </section>
-  </main>
+
+    <section class="section">
+      <h2>Tennis</h2>
+
+      <div class="tennis-grid">
+        <div class="tennis-image">
+          <img src="assets/images/tennis.jpeg" alt="Aaron playing tennis">
+        </div>
+
+        <div class="tennis-text">
+          <p>
+            I’ve been playing tennis for about the past ten years and have traveled all over Texas to play in tournaments. I’m not going to pretend I’m some elite player, but I am very thankful the sport has tournament levels for players like me.
+          </p>
+
+          <p>
+            Tennis has given me the chance to compete, improve, and enjoy a lot of great experiences along the way. Two of the coolest moments have been getting to meet John Newcombe at his tennis ranch and getting to see Venus Williams play in person.
+          </p>
+
+          <p>
+            More than anything, tennis has been a fun challenge and a great way to spend time, stay active, and make memories over the years.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      © 2026 Aaron Clough
+    </div>
+  </div>
 </body>
 </html>
