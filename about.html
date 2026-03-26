@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     :root {
       --bg: linear-gradient(180deg, #eef5ef 0%, #e8f1ea 100%);
@@ -29,6 +31,11 @@
       color: var(--text);
     }
 
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
     .page {
       max-width: 1200px;
       margin: auto;
@@ -46,7 +53,11 @@
 
     .top-nav a {
       color: var(--accent);
-      text-decoration: none;
+      transition: 0.2s ease;
+    }
+
+    .top-nav a:hover {
+      color: var(--accent-dark);
     }
 
     .hero {
@@ -74,23 +85,27 @@
     h2 {
       margin-top: 0;
       font-size: 28px;
+      color: #1f2d23;
     }
 
     h3 {
       margin-top: 0;
-      font-size: 22px;
+      margin-bottom: 10px;
+      font-size: 24px;
+      color: #1f2d23;
     }
 
     p {
       font-size: 18px;
       line-height: 1.8;
+      margin-top: 0;
     }
 
-    /* Relationship */
     .relationship {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 30px;
+      align-items: start;
     }
 
     .gallery {
@@ -103,6 +118,7 @@
       height: 300px;
       object-fit: cover;
       border-radius: 15px;
+      display: block;
     }
 
     .gallery-row {
@@ -116,13 +132,13 @@
       height: 160px;
       object-fit: cover;
       border-radius: 12px;
+      display: block;
     }
 
     .broken-spoke {
       object-position: 50% 40%;
     }
 
-    /* Dogs */
     .dogs {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -143,16 +159,19 @@
       background: #dde8de;
       border-radius: 12px;
       padding: 10px;
-      min-height: 300px;
-      margin-bottom: 12px;
+      min-height: 320px;
+      margin-bottom: 14px;
     }
 
     .dog-img img {
-      max-height: 280px;
+      max-height: 300px;
+      max-width: 100%;
       width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
     }
 
-    /* TENNIS (FINAL FIX) */
     .tennis-text {
       margin-bottom: 22px;
     }
@@ -161,14 +180,17 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
+      align-items: stretch;
     }
 
     .tennis-gallery img {
       width: 100%;
-      height: 320px; /* slightly shorter = less cropping */
+      height: 320px;
       object-fit: cover;
+      object-position: center;
       border-radius: 16px;
       display: block;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
     }
 
     .tennis-main-photo {
@@ -179,7 +201,6 @@
       object-position: center;
     }
 
-    /* 🔥 THIS IS THE KEY FIX */
     .newks-photo {
       object-position: top center;
     }
@@ -197,8 +218,47 @@
       .tennis-gallery {
         grid-template-columns: 1fr;
       }
+
+      .tennis-gallery img {
+        height: auto;
+        max-height: none;
+      }
     }
 
+    @media (max-width: 600px) {
+      .page {
+        padding: 20px 14px 40px;
+      }
+
+      .hero {
+        padding: 24px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .section {
+        padding: 22px;
+      }
+
+      p {
+        font-size: 17px;
+      }
+
+      .gallery-row {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-main img,
+      .gallery-row img {
+        height: auto;
+      }
+
+      .dog-img {
+        min-height: 240px;
+      }
+    }
   </style>
 </head>
 
@@ -215,7 +275,6 @@
     <h1>About Me</h1>
   </div>
 
-  <!-- TERA -->
   <div class="section">
     <h2>Tera and Me</h2>
 
@@ -240,54 +299,67 @@
 
       <div class="gallery">
         <div class="gallery-main">
-          <img src="assets/images/Wicked.jpg">
+          <img src="assets/images/Wicked.jpg" alt="Aaron and Tera at Wicked">
         </div>
         <div class="gallery-row">
-          <img class="broken-spoke" src="assets/images/brokenspoke.jpeg">
-          <img src="assets/images/houston.png">
+          <img class="broken-spoke" src="assets/images/brokenspoke.jpeg" alt="Aaron and Tera at Broken Spoke">
+          <img src="assets/images/houston.png" alt="Aaron and Tera in Houston">
         </div>
       </div>
     </div>
   </div>
 
-  <!-- DOGS -->
   <div class="section">
     <h2>Our Dogs</h2>
 
     <div class="dogs">
       <div class="dog-card">
         <div class="dog-img">
-          <img src="assets/images/keo.png">
+          <img src="assets/images/keo.png" alt="Keo">
         </div>
         <h3>Keo</h3>
-        <p>Keo is a Chaweeny and one of our full-time office mates. He’s about seven years old.</p>
+        <p>
+          Keo is a Chaweeny and one of our full-time office mates. He’s about seven years old and keeps things interesting during the workday.
+        </p>
       </div>
 
       <div class="dog-card">
         <div class="dog-img">
-          <img src="assets/images/raider.png">
+          <img src="assets/images/raider.png" alt="Raider">
         </div>
         <h3>Raider</h3>
-        <p>Raider is a Chihuahua and the other member of the home office team.</p>
+        <p>
+          Raider is a Chihuahua and the other member of the home office team. He’s about nine years old and takes his job very seriously.
+        </p>
       </div>
     </div>
   </div>
 
-  <!-- TENNIS -->
   <div class="section">
     <h2>Tennis</h2>
 
     <div class="tennis-text">
-      <p>I’ve been playing tennis for about the past ten years and have competed across Texas, qualifying for nationals four times.</p>
-      <p>Tennis keeps me active and has introduced me to great people.</p>
-      <p>I’ve met John Newcombe and seen Venus Williams play in person.</p>
-      <p>Tera even comes out of retirement to play with me.</p>
+      <p>
+        I’ve been playing tennis for about the past ten years and have traveled all over Texas competing in tournaments. While I wouldn’t describe myself as an elite player, I’ve been fortunate to qualify for and compete in the national doubles tournament four different times, which has been a really cool experience.
+      </p>
+
+      <p>
+        One of the things I appreciate most about tennis is that it’s truly a lifelong sport. It keeps me active, helps me stay in shape, and has given me the chance to meet a lot of great people along the way.
+      </p>
+
+      <p>
+        A couple of my favorite tennis memories include getting to meet John Newcombe at his ranch and seeing Venus Williams play in person. Both were reminders of how much history, fun, and community the sport can bring.
+      </p>
+
+      <p>
+        Tera also played back in high school, and I’ve managed to bring her out of retirement a few times to get out on the court with me, which always makes it even more fun.
+      </p>
     </div>
 
     <div class="tennis-gallery">
-      <img class="tennis-main-photo" src="assets/images/tennis.jpeg">
-      <img class="serve-photo" src="assets/images/serve.jpeg">
-      <img class="newks-photo" src="assets/images/newks.jpeg">
+      <img class="tennis-main-photo" src="assets/images/tennis.jpeg" alt="Aaron playing tennis">
+      <img class="serve-photo" src="assets/images/serve.jpeg" alt="Aaron serving in tennis">
+      <img class="newks-photo" src="assets/images/newks.jpeg" alt="Aaron at John Newcombe tennis ranch">
     </div>
   </div>
 
