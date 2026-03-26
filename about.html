@@ -183,27 +183,28 @@
       align-items: stretch;
     }
 
-    .tennis-gallery img {
-      width: 100%;
-      height: 320px;
-      object-fit: cover;
-      object-position: center;
+    .tennis-frame {
+      height: 360px;
+      background: #eef3ef;
+      border: 1px solid var(--line);
       border-radius: 16px;
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
       box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
     }
 
-    .tennis-main-photo {
-      object-position: top center;
+    .tennis-frame img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      border-radius: 10px;
     }
-
-    .serve-photo {
-      object-position: center;
-    }
-
-    .newks-photo {
-  object-position: 50% 0%;
-}
 
     footer {
       text-align: center;
@@ -219,9 +220,9 @@
         grid-template-columns: 1fr;
       }
 
-      .tennis-gallery img {
+      .tennis-frame {
         height: auto;
-        max-height: none;
+        min-height: 260px;
       }
     }
 
@@ -257,6 +258,10 @@
 
       .dog-img {
         min-height: 240px;
+      }
+
+      .tennis-frame {
+        min-height: 220px;
       }
     }
   </style>
@@ -357,9 +362,15 @@
     </div>
 
     <div class="tennis-gallery">
-      <img class="tennis-main-photo" src="assets/images/tennis.jpeg" alt="Aaron playing tennis">
-      <img class="serve-photo" src="assets/images/serve.jpeg" alt="Aaron serving in tennis">
-      <img class="newks-photo" src="assets/images/newks.jpeg" alt="Aaron at John Newcombe tennis ranch">
+      <div class="tennis-frame">
+        <img src="assets/images/tennis.jpeg" alt="Aaron playing tennis">
+      </div>
+      <div class="tennis-frame">
+        <img src="assets/images/serve.jpeg" alt="Aaron serving in tennis">
+      </div>
+      <div class="tennis-frame">
+        <img src="assets/images/newks.jpeg" alt="Aaron at John Newcombe tennis ranch">
+      </div>
     </div>
   </div>
 
