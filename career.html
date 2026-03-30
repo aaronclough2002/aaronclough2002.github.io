@@ -6,9 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     :root {
       --bg: linear-gradient(180deg, #eef5ef 0%, #e7f0e9 100%);
@@ -31,10 +29,7 @@
       background: var(--bg);
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+    a { text-decoration: none; color: inherit; }
 
     .page {
       max-width: 1200px;
@@ -56,9 +51,7 @@
       transition: 0.2s ease;
     }
 
-    .top-nav a:hover {
-      color: var(--accent-dark);
-    }
+    .top-nav a:hover { color: var(--accent-dark); }
 
     .hero {
       background: var(--hero);
@@ -69,11 +62,7 @@
       text-align: center;
     }
 
-    .hero h1 {
-      margin: 0 0 12px;
-      font-size: 42px;
-      letter-spacing: -0.6px;
-    }
+    .hero h1 { margin: 0 0 12px; font-size: 42px; }
 
     .hero p {
       max-width: 860px;
@@ -81,80 +70,6 @@
       font-size: 19px;
       line-height: 1.8;
       color: #294032;
-    }
-
-    .top-strip {
-      background: var(--panel);
-      border-radius: var(--radius);
-      padding: 22px 24px;
-      margin-bottom: 24px;
-      box-shadow: var(--shadow);
-    }
-
-    .top-strip-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .top-strip-text {
-      font-size: 16px;
-      color: #294032;
-      font-weight: 600;
-    }
-
-    .button-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 12px 18px;
-      border-radius: 10px;
-      font-weight: 700;
-      transition: 0.2s ease;
-    }
-
-    .button.primary {
-      background: var(--accent);
-      color: white;
-    }
-
-    .button.primary:hover {
-      background: var(--accent-dark);
-      transform: translateY(-1px);
-    }
-
-    .button.secondary {
-      background: white;
-      color: var(--accent-dark);
-      border: 1px solid var(--line);
-    }
-
-    .button.secondary:hover {
-      background: #f8fbf8;
-      transform: translateY(-1px);
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .pill {
-      background: #e7f1e8;
-      color: #294032;
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 600;
-      border: 1px solid rgba(60, 90, 69, 0.08);
     }
 
     .section {
@@ -165,75 +80,12 @@
       box-shadow: var(--shadow);
     }
 
-    .section h2 {
-      margin: 0 0 18px;
-      font-size: 30px;
-      letter-spacing: -0.4px;
-    }
-
-    .section p {
-      font-size: 18px;
-      line-height: 1.85;
-      color: #24362b;
-      margin-top: 0;
-      margin-bottom: 18px;
-    }
-
-    .story-grid {
+    .projects-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 28px;
-      align-items: start;
-    }
-
-    .summary-panel {
-      background: var(--panel-soft);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 22px;
-    }
-
-    .summary-panel h3 {
-      margin: 0 0 14px;
-      font-size: 23px;
-    }
-
-    .summary-list {
-      display: grid;
-      gap: 16px;
-    }
-
-    .summary-item {
-      padding-bottom: 16px;
-      border-bottom: 1px solid rgba(60, 90, 69, 0.08);
-    }
-
-    .summary-item:last-child {
-      padding-bottom: 0;
-      border-bottom: none;
-    }
-
-    .summary-item strong {
-      display: block;
-      margin-bottom: 6px;
-      font-size: 17px;
-      color: var(--accent-dark);
-    }
-
-    .summary-item span {
-      font-size: 16px;
-      line-height: 1.7;
-      color: #35503f;
-    }
-
-    .value-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
-    .value-card,
-    .impact-card,
     .project-card {
       background: var(--panel-soft);
       border: 1px solid var(--line);
@@ -242,41 +94,26 @@
       transition: 0.2s ease;
     }
 
-    .value-card:hover,
-    .impact-card:hover,
     .project-card:hover {
       transform: translateY(-3px);
       box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
     }
 
-    .value-card h3,
-    .impact-card h3,
-    .project-card h3 {
-      margin: 0 0 12px;
-      font-size: 22px;
+    .button {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      margin-top: 12px;
     }
 
-    .value-card p,
-    .impact-card p,
-    .project-card p {
-      margin: 0;
-      font-size: 17px;
-      line-height: 1.8;
+    .button.primary {
+      background: var(--accent);
+      color: white;
     }
 
-    .impact-list {
-      display: grid;
-      gap: 16px;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .project-links {
-      margin-top: 16px;
+    .button.primary:hover {
+      background: var(--accent-dark);
     }
 
     footer {
@@ -287,38 +124,11 @@
     }
 
     @media (max-width: 980px) {
-      .story-grid,
-      .value-grid,
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .page {
-        padding: 20px 14px 40px;
-      }
-
-      .hero,
-      .top-strip,
-      .section {
-        padding: 22px;
-      }
-
-      .hero h1 {
-        font-size: 34px;
-      }
-
-      .hero p,
-      .section p,
-      .value-card p,
-      .impact-card p,
-      .project-card p {
-        font-size: 17px;
-      }
+      .projects-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
+
 <body>
   <div class="page">
 
@@ -335,178 +145,50 @@
       </p>
     </div>
 
-    <div class="top-strip">
-      <div class="top-strip-inner">
-        <div class="top-strip-text">Resume and certifications</div>
-        <div class="button-row">
-          <a class="button secondary" href="assets/docs/resume.pdf" target="_blank">View Resume</a>
-        </div>
-      </div>
-
-      <div class="pill-row">
-        <span class="pill">PMP (Project Management Professional)</span>
-        <span class="pill">CSM (Certified ScrumMaster)</span>
-        <span class="pill">CSPO (Certified Scrum Product Owner)</span>
-        <span class="pill">CBAP (Certified Business Analysis Professional)</span>
-        <span class="pill">AWS CCP (AWS Certified Cloud Practitioner)</span>
-        <span class="pill">Salesforce Associate</span>
-        <span class="pill">Certified AI Prompt Engineer</span>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>How I Got Here</h2>
-
-      <div class="story-grid">
-        <div>
-          <p>
-            I started my career as a high school technology teacher and coach, teaching courses such as Business Information Systems, Web Design, Video Production, and Digital Media while coaching football and soccer.
-          </p>
-
-          <p>
-            I also led student teams responsible for live production at football games, including cameras and jumbotron operations. That experience built a strong foundation in leadership, communication, and organization.
-          </p>
-
-          <p>
-            From there, I entered a software development program at the University of Texas and transitioned into enterprise technology, working across project management, product ownership, technical business analysis, and delivery leadership roles.
-          </p>
-        </div>
-
-        <div class="summary-panel">
-          <h3>At a Glance</h3>
-
-          <div class="summary-list">
-            <div class="summary-item">
-              <strong>Background</strong>
-              <span>Teacher, coach, analyst, product owner, and project manager.</span>
-            </div>
-
-            <div class="summary-item">
-              <strong>Environments</strong>
-              <span>Enterprise organizations, startups, product teams, and regulated technology settings.</span>
-            </div>
-
-            <div class="summary-item">
-              <strong>Strength</strong>
-              <span>Bridging business needs and technical execution while keeping delivery moving.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>How I Add Value</h2>
-
-      <div class="value-grid">
-        <div class="value-card">
-          <h3>Bringing Structure to Complex Work</h3>
-          <p>
-            I’m at my best when a project has a lot of moving parts, unclear ownership, or competing priorities. I help teams organize the work, define what matters most, and move forward with clarity.
-          </p>
-        </div>
-
-        <div class="value-card">
-          <h3>Connecting Business and Technical Teams</h3>
-          <p>
-            I naturally operate between stakeholders, product teams, and engineering. I help turn business needs into actionable work and keep people aligned on what success actually looks like.
-          </p>
-        </div>
-
-        <div class="value-card">
-          <h3>Asking the Right Questions Early</h3>
-          <p>
-            A lot of delivery issues come from assumptions or gaps in understanding. I tend to spot those early by asking the questions that bring hidden risks and unclear expectations to the surface.
-          </p>
-        </div>
-
-        <div class="value-card">
-          <h3>Maintaining Momentum</h3>
-          <p>
-            I focus on keeping work moving. That means removing blockers, prioritizing thoughtfully, and making progress visible so teams and leaders can make decisions with confidence.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>Selected Impact</h2>
-
-      <div class="impact-list">
-        <div class="impact-card">
-          <h3>Enterprise Workday Delivery</h3>
-          <p>
-            Supported large-scale HR and payroll platform work in a complex enterprise environment, helping coordinate cross-functional execution across integrations, reporting, and operational issues tied to a major post-go-live effort.
-          </p>
-        </div>
-
-        <div class="impact-card">
-          <h3>Scientific Platform Delivery</h3>
-          <p>
-            Led the full rollout of an international scientific imaging platform across 8 European sites, owned the vendor relationship and overall delivery strategy, coordinated testing directly with scientists at each site, and performed analysis that helped determine the most cost-effective AWS implementation model.
-          </p>
-        </div>
-
-        <div class="impact-card">
-          <h3>Product and Search Work</h3>
-          <p>
-            Worked across search relevance, backlog prioritization, workflow design, and delivery coordination, helping teams make better product decisions using customer behavior, business context, and practical execution tradeoffs.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>Tools & Technologies</h2>
-
-      <div class="pill-row" style="margin-top:0;">
-        <span class="pill">Workday</span>
-        <span class="pill">AWS</span>
-        <span class="pill">Salesforce</span>
-        <span class="pill">Jira</span>
-        <span class="pill">Confluence</span>
-        <span class="pill">Azure DevOps</span>
-        <span class="pill">Excel</span>
-        <span class="pill">SharePoint</span>
-        <span class="pill">Python</span>
-        <span class="pill">JavaScript</span>
-        <span class="pill">SQL</span>
-      </div>
-    </div>
-
     <div class="section">
       <h2>AI Projects</h2>
 
       <div class="projects-grid">
+
+        <!-- JIRA TOOL -->
         <div class="project-card">
           <h3>AI Jira Planning Assistant</h3>
           <p>
-            A planning tool that turns messy requirements into structured Jira work, checks for existing epics and stories, and helps create cleaner delivery plans with less duplication.
+            A planning tool that turns messy requirements into structured Jira work.
           </p>
-          <div class="project-links">
-            <a class="button primary" href="https://ai-jira-generator-hwy5g4v4xtpfcduzhgyse2.streamlit.app/" target="_blank">Open Project</a>
-          </div>
+          <a class="button primary"
+             href="https://ai-jira-generator-hwy5g4v4xtpfcduzhgyse2.streamlit.app/"
+             target="_blank">
+            Open Project
+          </a>
         </div>
 
+        <!-- MEETING SUMMARY TOOL (FIXED) -->
         <div class="project-card">
-          <h3>AI Project Status Generator</h3>
+          <h3>AI Meeting Summary Tool</h3>
           <p>
-            A project-focused tool built to generate polished status updates more efficiently by combining project management context with AI assistance.
+            Generate structured, professional summaries from meeting notes and transcripts.
           </p>
-          <div class="project-links">
-            <a class="button primary" href="https://ai-project-status-generator.streamlit.app/" target="_blank">Open Project</a>
-          </div>
+          <a class="button primary"
+             href="https://ai-meeting-summary-tool-isheiesprhfzfbtkzhvmwc.streamlit.app/"
+             target="_blank">
+            Open Project
+          </a>
         </div>
 
+        <!-- KNOWLEDGE BASE (FIXED) -->
         <div class="project-card">
           <h3>RAG Knowledge Base Search</h3>
           <p>
-            A retrieval-based document search app that allows users to ask questions across uploaded files and receive grounded answers back.
+            Ask questions across uploaded documents and get grounded answers.
           </p>
-          <div class="project-links">
-            <a class="button primary" href="https://https://cet-knowledge-base-wsvphtinfzzpouoen2ohwa.streamlit.app/" target="_blank">Open Project</a>
-          </div>
+          <a class="button primary"
+             href="https://cet-knowledge-base-wsvphtinfzzpouoen2ohwa.streamlit.app/"
+             target="_blank">
+            Open Project
+          </a>
         </div>
+
       </div>
     </div>
 
